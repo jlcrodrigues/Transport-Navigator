@@ -6,10 +6,15 @@ set(CMAKE_CXX_STANDARD 11)
 set(CREATE_EXE TRUE)
 
 set(SOURCE_FILES
+		src/Position.h
+		src/Stop.h
 
+		src/Position.cpp
+		src/Stop.cpp
 		)
 
 set(TEST_FILES
+		tests/StopTest.cpp
 		)
 
 include_directories(src)
