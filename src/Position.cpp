@@ -6,9 +6,9 @@ Position::Position(const double &latitude, const double &longitude)
     this->longitude = longitude;
 }
 //TODO
-bool Position::operator - (const Position &pos) const
+double Position::operator - (const Position &pos) const
 {
-    return true;
+    return 0;
 }
 //TODO
 bool Position::operator == (const Position &pos) const

@@ -14,6 +14,7 @@ set(SOURCE_FILES
 		)
 
 set(TEST_FILES
+		tests/PositionTest.cpp
 		tests/StopTest.cpp
 		)
 
