@@ -6,9 +6,13 @@ set(CMAKE_CXX_STANDARD 11)
 set(CREATE_EXE TRUE)
 
 set(SOURCE_FILES
+		src/graph.h
+		src/Navigator.h
 		src/Position.h
 		src/Stop.h
 
+		src/graph.cpp
+		src/Navigator.cpp
 		src/Position.cpp
 		src/Stop.cpp
 		)

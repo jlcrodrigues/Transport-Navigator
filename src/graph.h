@@ -5,31 +5,35 @@
 #include <list>
 #include <iostream>
 #include <climits>
+#include "Stop.h"
 
 using namespace std;
 
 class Graph {
     struct Edge {
         int dest;
-        int weight
+        string line;
     };
 
     struct Node {
+        int src;
         list<Edge> adj;
-        int dist;
-        int pred;
         bool visited;
-        string name;
     };
 
-    int n;
-    bool hasDir
     vector<Node> nodes;
+    int size;
 
 public:
-    Graph(int nodes, bool dir = false);
+    Graph(const int& size);
 
-    void addEdge(int src, int dest, int weight = 1);
+    /**
+     * Add an edge to the graph.
+     * @param src The origin node.
+     * @param dest The destination node.
+     * @param line The line code connecting both nodes.
+     */
+    void addEdge(const int& src, const int& dest, const string& line);
 };
 
 #endif
