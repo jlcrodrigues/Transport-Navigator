@@ -26,6 +26,10 @@ public:
     */
    void loadLines(const string& file_path);
 
+   /**
+    * Loads the files with the stops in each line and adds them to the graph.
+    * @param dir_path Path of the directory where these files are located.
+    */
    void loadLinesStops(const string& dir_path);
 
 private:

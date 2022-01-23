@@ -7,12 +7,15 @@ void Navigator::loadStops(const string &file_path)
     string row;
     ifstream file(file_path);
     if (!file.is_open()) return;
+    getline(file, row); //ignore first line
     while (getline(file, row))
     {
         stop.loadFromCsv(row);
         stops_map[stop.getCode()] = i;
         stops[stop.getCode()] = stop;
+        i++;
     }
+    network = Graph(i);
 }
 
 void Navigator::loadLines(const string &file_path)
@@ -20,6 +23,7 @@ void Navigator::loadLines(const string &file_path)
     string row, code, name;
     ifstream file(file_path);
     if (!file.is_open()) return;
+    getline(file, row); //ignore first line
     while (getline(file, row))
     {
         stringstream str(row);

@@ -25,6 +25,7 @@ class Graph {
     int size;
 
 public:
+   Graph() = default;
     Graph(const int& size);
 
     /**
