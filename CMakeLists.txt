@@ -20,6 +20,7 @@ set(SOURCE_FILES
 		)
 
 set(TEST_FILES
+		tests/GraphTest.cpp
 		tests/PositionTest.cpp
 		tests/StopTest.cpp
 		)
