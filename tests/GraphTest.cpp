@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "Graph.h"
+#include "Navigator/graph.h"
 #include <stack>
 
 using testing::Eq;

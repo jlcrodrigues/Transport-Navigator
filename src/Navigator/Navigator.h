@@ -7,7 +7,7 @@
 #include <map>
 #include <fstream>
 
-#include "Graph.h"
+#include "graph.h"
 #include "Stop.h"
 
 class Navigator {
