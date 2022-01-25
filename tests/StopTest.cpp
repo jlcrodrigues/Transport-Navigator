@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "Stop.h"
+#include "Navigator/Stop.h"
 
 using testing::Eq;
 

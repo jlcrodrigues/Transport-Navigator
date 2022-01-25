@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "Position.h"
+#include "Navigator/Position.h"
 
 using testing::Eq;
 

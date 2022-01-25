@@ -6,17 +6,21 @@ set(CMAKE_CXX_STANDARD 11)
 set(CREATE_EXE TRUE)
 
 set(SOURCE_FILES
-		src/App.h
-		src/graph.h
-		src/Navigator.h
-		src/Position.h
-		src/Stop.h
+		src/Menu/App.h
+		src/Menu/InitialState.h
+		src/Menu/State.h
+		src/Navigator/graph.h
+		src/Navigator/Navigator.h
+		src/Navigator/Position.h
+		src/Navigator/Stop.h
 
-		src/App.cpp
-		src/graph.cpp
-		src/Navigator.cpp
-		src/Position.cpp
-		src/Stop.cpp
+		src/Menu/App.cpp
+		src/Menu/InitialState.cpp
+		src/Menu/State.cpp
+		src/Navigator/graph.cpp
+		src/Navigator/Navigator.cpp
+		src/Navigator/Position.cpp
+		src/Navigator/Stop.cpp
 		)
 
 set(TEST_FILES
