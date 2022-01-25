@@ -10,8 +10,6 @@ App::App()
 
 void App::run()
 {
-    //state = new InitialState();
-
     while (state != nullptr)
     {
         state->run(this);

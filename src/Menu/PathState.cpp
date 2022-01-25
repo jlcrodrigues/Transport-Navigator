@@ -1,13 +1,14 @@
-#include "InitialState.h"
+#include "PathState.h"
 
-void InitialState::display()
+void PathState::display()
 {
-    cout << "Initial Page\n";
-    cout << "1) Start\n";
-    cout << "2) Exit\n";
+    cout << "Choose Path option\n";
+    cout << "2) Fewest Stops\n";
+    cout << "1) Return\n";
+    cout << "0) Exit\n";
 }
 
-void InitialState::step(App *app)
+void PathState::step(App *app)
 {
     while (true)
     {

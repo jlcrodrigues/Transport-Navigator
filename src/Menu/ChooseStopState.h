@@ -1,12 +1,11 @@
-#ifndef INITIALSTATE_H
-#define INITIALSTATE_H
-
-#include <iostream>
+#ifndef CHOOSESTOP_H
+#define CHOOSESTOP_H
 
 #include "State.h"
 #include "ChooseStartState.h"
+#include "PathState.h"
 
-class InitialState : public State {
+class ChooseStopState : public State {
    void step(App* app) override;
    void display() override;
 };

@@ -3,7 +3,6 @@
 
 #include "Navigator/Navigator.h"
 #include "Menu/State.h"
-//#include "Menu/InitialState.h"
 
 class State;
 
@@ -15,8 +14,16 @@ public:
    /**The application main loop.**/
    void run();
 
+   /**
+    * Get the app's navigator object.
+    * @return Pointer to the app's navigator.
+    */
    Navigator* getNavigator() const;
 
+   /**
+    * Change the app's current state.
+    * @param state Any state derived class.
+    */
    void setState(State* state);
 
 private:

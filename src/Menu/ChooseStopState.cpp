@@ -1,13 +1,13 @@
-#include "InitialState.h"
+#include "ChooseStopState.h"
 
-void InitialState::display()
+void ChooseStopState::display()
 {
-    cout << "Initial Page\n";
-    cout << "1) Start\n";
-    cout << "2) Exit\n";
+    cout << "Choose a stop\n";
+    cout << "1) Go back\n";
+    cout << "0) Exit\n";
 }
 
-void InitialState::step(App *app)
+void ChooseStopState::step(App *app)
 {
     while (true)
     {

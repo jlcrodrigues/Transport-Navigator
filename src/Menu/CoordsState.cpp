@@ -1,13 +1,13 @@
-#include "InitialState.h"
+#include "CoordsState.h"
 
-void InitialState::display()
+void CoordsState::display()
 {
-    cout << "Initial Page\n";
-    cout << "1) Start\n";
-    cout << "2) Exit\n";
+    cout << "Input coords\n";
+    cout << "1) Go back\n";
+    cout << "0) Exit\n";
 }
 
-void InitialState::step(App *app)
+void CoordsState::step(App *app)
 {
     while (true)
     {
@@ -15,7 +15,7 @@ void InitialState::step(App *app)
 
         switch (option) {
             case 1:
-                app->setState(new ChooseStartState());
+                app->setState(new  ChooseStartState());
                 return;
             case 0:
                 app->setState(nullptr);
