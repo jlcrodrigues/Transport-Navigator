@@ -41,6 +41,14 @@ public:
     */
    vector<Stop> getFewestStops(const string& src, const string& dest);
 
+   /**
+    * Get the path with the fewest distance.
+    * @param src The starting stop.
+    * @param dest The destination stop.
+    * @return Vector with the stops from src to dest.
+    */
+   vector<Stop> getFewestDistance(const string &src, const string &dest);
+
 private:
    /**
     * Get a stop from the associated number.

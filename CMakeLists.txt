@@ -17,6 +17,7 @@ set(SOURCE_FILES
 		src/Navigator/Navigator.h
 		src/Navigator/Position.h
 		src/Navigator/Stop.h
+		src/Navigator/minHeap.h
 
 		src/Menu/App.cpp
 		src/Menu/ChooseStartState.cpp
@@ -28,8 +29,7 @@ set(SOURCE_FILES
 		src/Navigator/graph.cpp
 		src/Navigator/Navigator.cpp
 		src/Navigator/Position.cpp
-		src/Navigator/Stop.cpp
-		)
+		src/Navigator/Stop.cpp)
 
 set(TEST_FILES
 		tests/GraphTest.cpp

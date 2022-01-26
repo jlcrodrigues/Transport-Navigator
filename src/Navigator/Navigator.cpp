@@ -52,7 +52,7 @@ void Navigator::loadLinesStops(const string& dir_path)
                 getline(file, row);
                 if (previous != "") {
                     network.addEdge(stops_code[previous],
-                                    stops_code[row],
+                                    stops_code[row], getStop(stops_code[row]).getPosition() - getStop(stops_code[previous]).getPosition(),
                                     line.first);
                 }
                 previous = row;
@@ -65,6 +65,16 @@ vector<Stop> Navigator::getFewestStops(const string &src, const string &dest)
 {
     vector<Stop> path;
     vector<int> path_int = network.bfsPath(stops_code[src], stops_code[dest]);
+    for (int i = 0; i < path_int.size(); i++)
+    {
+        path.push_back(getStop(path_int[i]));
+    }
+    return path;
+}
+
+vector<Stop> Navigator::getFewestDistance(const string &src, const string &dest){
+    vector<Stop> path;
+    vector<int> path_int = network.dijkstra_dist(stops_code[src], stops_code[dest]);
     for (int i = 0; i < path_int.size(); i++)
     {
         path.push_back(getStop(path_int[i]));

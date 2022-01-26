@@ -21,5 +21,6 @@ double Position::operator - (const Position &pos) const
 //TODO
 bool Position::operator == (const Position &pos) const
 {
-    return true;
+    if (this->latitude == pos.latitude && this->longitude == pos.longitude) return true;
+    return false;
 }
