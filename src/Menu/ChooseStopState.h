@@ -42,12 +42,25 @@ private:
      */
     void loadLinesStops(string path);
 
-   string Aux(App *app, bool source);
+
+    /**
+     * Auxiliary function for step.
+     * @param app Pointer to the main application.
+     */
+    void aux(App *app);
+
+    /**
+     * Checks if inputted line is valid.
+     * @param app Pointer to the main application
+     * @param option User input.
+     * @return
+     */
+    bool checkLine(App *app, string option);
 
     vector<string> linesStops;
 
-
     string src, dest;
+
 };
 
 

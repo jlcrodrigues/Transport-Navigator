@@ -9,20 +9,20 @@ void ChooseStopState::display()
 
 void ChooseStopState::step(App *app) {
     while (true) {
-        string option = readOptionString(app);
+        int option = readOption(app);
 
-        if (option == "2") {
+        if (option == 2) {
             app->setState(new ChooseStartState());
             return;
         }
-        if (option == "0") {
+        if (option == 0) {
             app->setState(nullptr);
             return;
         }
 
-        if (option == "3")
+        if (option == 3)
         {
-            Aux(app, true);
+            aux(app);
             app->setState(new PathState(src, dest));
             return;
         }
@@ -30,70 +30,51 @@ void ChooseStopState::step(App *app) {
     }
 }
 
-string ChooseStopState::Aux(App *app, bool source) {
-    bool done = true;
+void ChooseStopState::aux(App *app) {
     displayLines(app);
     string option = readOptionString(app);
 
-    while (done) {
-        for (auto line: app->getNavigator()->getLines()) {
-            if (option == line.first)
-            {
-                cout << "You chose line: " << line.second << "\n";
-                int dir = askDirection(app);
-
-                string path = "../data/line_" + option + "_" + to_string(dir) + ".csv";
-                loadLinesStops(path);
-
-                displayLinesStops(app, path);
-                cout << "Insert the code of source stop: ";
-                src = askStop(app);
-                done = false;
-            }
+    if (!checkLine(app, option)) {
+        while (true) {
+            cout << "Invalid line. Please try again: \n";
+            string option = readOptionString(app);
+            if (checkLine(app, option)) break;
         }
-        if (done)
-        {
-            cout << "Invalid line.\nInsert the code of the wanted line: ";
-            option = readOptionString(app);
-        }
-
     }
 
-    done = true;
+    int dir = askDirection(app);
+    string path = "../data/line_" + option + "_" + to_string(dir) + ".csv";
+    loadLinesStops(path);
+    displayLinesStops(app, path);
+
+    cout << "Insert the code of source stop: ";
+    src = askStop(app);
+
     displayLines(app);
     option = readOptionString(app);
 
-    while (done) {
-        for (auto line: app->getNavigator()->getLines()) {
-            if (option == line.first)
-            {
-                cout << "You chose line: " << line.second << "\n";
-
-                int dir = askDirection(app);
-
-                string path = "../data/line_" + option + "_" + to_string(dir) + ".csv";
-                loadLinesStops(path);
-
-                displayLinesStops(app, path);
-                cout << "Insert the code of destination stop: ";
-                dest = askStop(app);
-                if (dest == src)
-                {
-                    while (dest == src){
-                        cout << "Source stop and destination stop must be different. Insert the code of destination stop.\n";
-                        dest = askStop(app);
-                    }
-                }
-                cout << "You chose source stop " << src << " and destination stop " << dest << ".\n";
-                done = false;
-            }
-        }
-        if (done)
-        {
-            cout << "Invalid line.\nInsert the code of the wanted line: ";
-            option = readOptionString(app);
+    if (!checkLine(app, option)) {
+        while (true) {
+            cout << "Invalid line. Please try again: \n";
+            string option = readOptionString(app);
+            if (checkLine(app, option)) break;
         }
     }
+
+    dir = askDirection(app);
+    path = "../data/line_" + option + "_" + to_string(dir) + ".csv";
+    loadLinesStops(path);
+    displayLinesStops(app, path);
+
+    cout << "Insert the code of destination stop: ";
+    dest = askStop(app);
+
+    while(src == dest) {
+        cout << "Source stop and destination source must be different. Try another destination stop: ";
+        dest = askStop(app);
+    }
+
+    cout << "You chose source stop " << src << " and destination stop " << dest << "\n";
 }
 
 
@@ -160,4 +141,14 @@ void ChooseStopState::loadLinesStops(string path) {
         linesStops.push_back(row);
     }
     file.close();
+}
+
+bool ChooseStopState::checkLine(App *app, string option) {
+    for (auto line: app->getNavigator()->getLines()) {
+        if (option == line.first) {
+            cout << "You chose line: " << line.second << "\n";
+            return true;
+        }
+    }
+    return false;
 }
