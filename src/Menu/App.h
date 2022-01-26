@@ -1,8 +1,8 @@
 #ifndef APP_H
 #define APP_H
 
-#include "Navigator/Navigator.h"
-#include "Menu/State.h"
+#include "../src/Navigator/Navigator.h"
+#include "State.h"
 
 class State;
 

@@ -28,12 +28,12 @@ protected:
     * Handle the specific events in each state.
     * @param app Pointer to the main application.
     */
-   virtual void step(App* app);
+   virtual void step(App* app) {}
 
    /**
     * Display the specific contents of each state.
     */
-   virtual void display();
+   virtual void display() {}
 };
 
 
