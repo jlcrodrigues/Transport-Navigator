@@ -41,6 +41,19 @@ public:
     */
    vector<Stop> getFewestStops(const string& src, const string& dest);
 
+   /**
+    * Getter for lines.
+    * @return Map with all the lines.
+    */
+    unordered_map<string, string> getLines();
+
+    /**
+     * Getter for stops.
+     * @return Mapp with all the stops.
+     */
+    unordered_map<string, Stop> getStops();
+
+
 private:
    /**
     * Get a stop from the associated number.
@@ -55,6 +68,7 @@ private:
    map<string, int> stops_code;
    map<int, string> stops_number;
    Graph network;
+
 };
 
 

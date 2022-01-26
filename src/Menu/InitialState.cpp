@@ -4,7 +4,7 @@ void InitialState::display()
 {
     cout << "Initial Page\n";
     cout << "1) Start\n";
-    cout << "2) Exit\n";
+    cout << "0) Exit\n";
 }
 
 void InitialState::step(App *app)

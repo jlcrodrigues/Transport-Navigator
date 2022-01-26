@@ -23,6 +23,23 @@ int State::readOption(App* app) const
     return option;
 }
 
+string State::readOptionString(App *app) const {
+    string option;
+
+    while (!(cin >> option))
+    {
+        if (cin.eof()) app->setState(nullptr);
+        else
+        {
+            cin.clear();
+            cin.ignore(1000000, '\n');
+            printInvalidOption();
+        }
+    }
+    return option;
+
+}
+
 void State::printInvalidOption() const
 {
     cout << "Invalid option. Try again.\n";

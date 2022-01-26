@@ -19,7 +19,15 @@ protected:
     */
    int readOption(App* app) const;
 
-   /**
+/**
+ * Reads a string until valid input.
+ * @param app Pointer to the main Application.
+ * @return Returns a string from user input
+ */
+    string readOptionString(App *app) const;
+
+
+    /**
     * Outputs the invalid option message to the console.
     */
    void printInvalidOption() const;
@@ -34,6 +42,7 @@ protected:
     * Display the specific contents of each state.
     */
    virtual void display() {}
+
 };
 
 

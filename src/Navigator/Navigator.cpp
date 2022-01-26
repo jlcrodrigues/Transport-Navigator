@@ -81,3 +81,11 @@ Stop Navigator::getStop(const int& number)
     return stops[it->first];
      */
 }
+
+unordered_map<string, string> Navigator::getLines() {
+    return lines;
+}
+
+unordered_map<string, Stop> Navigator::getStops() {
+    return stops;
+}
