@@ -7,7 +7,6 @@ void CoordsState::display()
 
 void CoordsState::step(App *app)
 {
-    //Position aliados = Position(41.14813992199169, -8.611093751930307);
     Position pos;
     string src, dest;
     cout << "Choose the starting point:\n";
@@ -56,10 +55,12 @@ string CoordsState::chooseStop(App* app, const Position& position) const
     {
         cout << stop.getCode() << " - " << stop.getName() << endl;
     }
+    for_each(code.begin(), code.end(), [](char & c){c = ::toupper(c);});
     while (!in(code, stops))
     {
         cout << "\nChoose a stop:";
         cin >> code;
+        for_each(code.begin(), code.end(), [](char & c){c = ::toupper(c);});
     }
     return code;
 }

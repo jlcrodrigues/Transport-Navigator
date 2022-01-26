@@ -23,6 +23,7 @@ void ChooseStopState::step(App *app) {
         if (option == "3")
         {
             Aux(app, true);
+            app->setState(new PathState(src, dest));
             return;
         }
         printInvalidOption();
@@ -30,7 +31,6 @@ void ChooseStopState::step(App *app) {
 }
 
 string ChooseStopState::Aux(App *app, bool source) {
-    string src, dest;
     bool done = true;
     displayLines(app);
     string option = readOptionString(app);
