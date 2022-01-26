@@ -43,6 +43,8 @@ private:
     void loadLinesStops(string path);
 
     vector<string> linesStops;
+
+    string Aux(App *app, bool source);
 };
 
 
