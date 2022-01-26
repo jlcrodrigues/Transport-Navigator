@@ -34,6 +34,14 @@ public:
    void loadLinesStops(const string& dir_path);
 
    /**
+    * Calculate the closest n stops to a point in space in O(n) time.
+    * @param src The origin point.
+    * @param number_of_stops Number of closest stops to be returned.
+    * @return Vector with n number of stops by order of distance;
+    */
+   vector<Stop> getClosestStops(const Position& src, const int& number_of_stops);
+
+   /**
     * Get the path with the fewest stops.
     * @param src The starting stop.
     * @param dest The destination stop.
