@@ -10,6 +10,9 @@ App::App()
 
 void App::run()
 {
+    //vector<Stop> p = navigator->getFewestStops("AAL5", "ALMG1");
+    //for (auto s: p) cout << s.getCode() << " " << s.getName() << endl;
+
     while (state != nullptr)
     {
         state->run(this);

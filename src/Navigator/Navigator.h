@@ -5,6 +5,7 @@
 #include <sstream>
 #include <unordered_map>
 #include <map>
+#include <vector>
 #include <fstream>
 
 #include "graph.h"
@@ -32,11 +33,27 @@ public:
     */
    void loadLinesStops(const string& dir_path);
 
+   /**
+    * Get the path with the fewest stops.
+    * @param src The starting stop.
+    * @param dest The destination stop.
+    * @return Vector with the stops from src to dest.
+    */
+   vector<Stop> getFewestStops(const string& src, const string& dest);
+
 private:
+   /**
+    * Get a stop from the associated number.
+    * @param number A number in stops_map.
+    * @return Returns the correspondent stop for the number.
+    */
+   Stop getStop(const int& number);
+
    unordered_map<string, Stop> stops; //stops by code
    unordered_map<string, string> lines; //code, name
 
-   unordered_map<string, int> stops_map;
+   map<string, int> stops_code;
+   map<int, string> stops_number;
    Graph network;
 };
 

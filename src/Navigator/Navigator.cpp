@@ -11,7 +11,8 @@ void Navigator::loadStops(const string &file_path)
     while (getline(file, row))
     {
         stop.loadFromCsv(row);
-        stops_map[stop.getCode()] = i;
+        stops_code[stop.getCode()] = i;
+        stops_number[i] = stop.getCode();
         stops[stop.getCode()] = stop;
         i++;
     }
@@ -27,30 +28,56 @@ void Navigator::loadLines(const string &file_path)
     while (getline(file, row))
     {
         stringstream str(row);
-        getline(str, code);
-        getline(str, name);
+        getline(str, code, ',');
+        getline(str, name, ',');
         lines[code] = name;
     }
 }
 
 void Navigator::loadLinesStops(const string& dir_path)
 {
+    int number_of_stops;
     string row, previous = "";
     for (auto line : lines)
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 1; i++)
         {
-            ifstream file(dir_path + "lines_" + line.first + "_" + to_string(i) + ".csv");
+            previous = "";
+            ifstream file(dir_path + "line_" + line.first + "_" + to_string(i) + ".csv");
             if (!file.is_open()) continue;
-            getline(file, row); //ignore number of stops;
-            while (getline(file, row))
+            getline(file, row); //number of stops;
+            number_of_stops = stoi(row);
+            for (int j = 0; j < number_of_stops; j++)
             {
-                if (previous != "")
-                    network.addEdge(stops_map[previous],
-                                    stops_map[row],
+                getline(file, row);
+                if (previous != "") {
+                    network.addEdge(stops_code[previous],
+                                    stops_code[row],
                                     line.first);
+                }
                 previous = row;
             }
         }
     }
+}
+
+vector<Stop> Navigator::getFewestStops(const string &src, const string &dest)
+{
+    vector<Stop> path;
+    vector<int> path_int = network.bfsPath(stops_code[src], stops_code[dest]);
+    for (int i = 0; i < path_int.size(); i++)
+    {
+        path.push_back(getStop(path_int[i]));
+    }
+    return path;
+}
+
+Stop Navigator::getStop(const int& number)
+{
+    return stops[stops_number[number]];
+    /*
+    map<string, int>::iterator it = stops_map.begin();
+    for (int i = 0; i < number; i++) it++;
+    return stops[it->first];
+     */
 }

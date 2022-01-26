@@ -41,6 +41,7 @@ void Graph::bfs(int src) {
         {
             int w = e.dest;
             if (!nodes[w].visited) {
+                if (u == 36 && w == 1128) cout << "##" << "##" << e.line;
                 q.push(w);
                 nodes[w].visited = true;
                 nodes[w].distance = nodes[u].distance + 1;
