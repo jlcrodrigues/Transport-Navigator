@@ -40,7 +40,7 @@ void Navigator::loadLinesStops(const string& dir_path)
     string row, previous = "";
     for (auto line : lines)
     {
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 2; i++)
         {
             previous = "";
             ifstream file(dir_path + "line_" + line.first + "_" + to_string(i) + ".csv");
@@ -61,14 +61,33 @@ void Navigator::loadLinesStops(const string& dir_path)
     }
 }
 
+vector<Stop> Navigator::getClosestStops(const Position& src, const int& number_of_stops)
+{
+    map<double, Stop> distances;
+    vector<Stop> result;
+    for (auto stop: stops)
+    {
+        distances[src - stop.second.getPosition()] = stop.second;
+    }
+    map<double, Stop>::iterator it = distances.begin();
+    for (int i = 0; i < number_of_stops; i++)
+    {
+        result.push_back(it->second);
+        it++;
+    }
+    return result;
+}
+
 vector<Stop> Navigator::getFewestStops(const string &src, const string &dest)
 {
     vector<Stop> path;
     vector<int> path_int = network.bfsPath(stops_code[src], stops_code[dest]);
+    cout << path_int.size();
     for (int i = 0; i < path_int.size(); i++)
     {
         path.push_back(getStop(path_int[i]));
     }
+
     return path;
 }
 
@@ -90,4 +109,12 @@ Stop Navigator::getStop(const int& number)
     for (int i = 0; i < number; i++) it++;
     return stops[it->first];
      */
+}
+
+unordered_map<string, string> Navigator::getLines() {
+    return lines;
+}
+
+unordered_map<string, Stop> Navigator::getStops() {
+    return stops;
 }
