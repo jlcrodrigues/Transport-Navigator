@@ -83,26 +83,23 @@ vector<Stop> Navigator::getClosestStops(const Position& src, const int& number_o
     return result;
 }
 
-vector<Stop> Navigator::getFewestStops(const string &src, const string &dest)
+vector<pair<Stop, string> > Navigator::readPath(const vector<pair<string, string> >& path)
 {
-    vector<Stop> path;
-    vector<string> path_code = network.bfsPath(stops_code[src], stops_code[dest]);
-    for (int i = 0; i < path_code.size(); i++)
+    vector<pair<Stop, string> > result;
+    for (int i = 0; i < path.size(); i++)
     {
-        path.push_back(stops[path_code[i]]);
+        result.push_back({stops[path[i].first], lines[path[i].second]});
     }
-
-    return path;
+    return result;
 }
 
-vector<Stop> Navigator::getFewestDistance(const string &src, const string &dest){
-    vector<Stop> path;
-    vector<string> path_code = network.dijkstra_dist(stops_code[src], stops_code[dest]);
-    for (int i = 0; i < path_code.size(); i++)
-    {
-        path.push_back(stops[path_code[i]]);
-    }
-    return path;
+vector<pair<Stop, string> > Navigator::getFewestStops(const string &src, const string &dest)
+{
+    return readPath(network.bfsPath(stops_code[src], stops_code[dest]));
+}
+
+vector<pair<Stop, string> > Navigator::getFewestDistance(const string &src, const string &dest){
+    return readPath(network.dijkstraPath(stops_code[src], stops_code[dest]));
 }
 
 unordered_map<string, string> Navigator::getLines() {

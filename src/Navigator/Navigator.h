@@ -3,6 +3,7 @@
 
 #include <string>
 #include <sstream>
+#include <utility>
 #include <unordered_map>
 #include <map>
 #include <vector>
@@ -41,21 +42,23 @@ public:
     */
    vector<Stop> getClosestStops(const Position& src, const int& number_of_stops);
 
+   vector<pair<Stop, string> > readPath(const vector<pair<string, string> >& path);
+
    /**
     * Get the path with the fewest stops.
     * @param src The starting stop.
     * @param dest The destination stop.
-    * @return Vector with the stops from src to dest.
+    * @return Vector with the stops from src to dest and the lines that make each transition.
     */
-   vector<Stop> getFewestStops(const string& src, const string& dest);
+   vector<pair<Stop, string> > getFewestStops(const string& src, const string& dest);
 
    /**
     * Get the path with the fewest distance.
     * @param src The starting stop.
     * @param dest The destination stop.
-    * @return Vector with the stops from src to dest.
+    * @return Vector with the stops from src to dest and the lines that make each transition.
     */
-   vector<Stop> getFewestDistance(const string &src, const string &dest);
+   vector<pair<Stop, string> > getFewestDistance(const string &src, const string &dest);
 
    /**
     * Getter for lines.

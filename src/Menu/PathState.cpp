@@ -40,12 +40,32 @@ void PathState::step(App *app)
     }
 }
 
-void PathState::displayPath(vector<Stop>& path) const
+void PathState::printStop(const Stop &stop) const
 {
-    for (auto stop: path)
+    cout << "  " << left << setw(6)  << stop.getCode();
+    cout << " - "<< stop.getName() << endl;
+}
+
+void PathState::displayPath(vector<pair<Stop, string> >& path) const
+{
+    if (path.size() < 2) cout << "Those stops are not connected.\n";
+    string previous_line = path[1].second;
+    cout << path[1].second << endl;
+    printStop(path[0].first);
+    cout << "  ...\n";
+    for (int i = 1; i < path.size() - 1; i++)
     {
-        cout << stop.getCode() << "  " << stop.getName() << endl;
+        if (path[i + 1].second != previous_line)
+        {
+            previous_line = path[i + 1].second;
+            printStop(path[i].first);
+            cout << endl;
+            cout << path[i + 1].second << endl;
+            printStop(path[i].first);
+            cout << "  ...\n";
+        }
     }
+    printStop(path[path.size() - 1].first);
 }
 
 void PathState::newPath(App *app)
@@ -73,15 +93,13 @@ void PathState::newPath(App *app)
 }
 
 void PathState::fewestStops(App* app) {
-    vector<Stop> path = app->getNavigator()->getFewestStops(src, dest);
-    if (path.size() == 0) cout << "Those stops are not connected.\n";
+    vector<pair<Stop, string> > path = app->getNavigator()->getFewestStops(src, dest);
     displayPath(path);
     newPath(app);
 }
 
 void PathState::fewestDistance(App *app) {
-    vector<Stop> path = app->getNavigator()->getFewestDistance(src, dest);
-    if (path.size() == 0) cout << "Those stops are not connected.\n";
+    vector<pair<Stop, string> > path = app->getNavigator()->getFewestDistance(src, dest);
     displayPath(path);
     newPath(app);
 }

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <list>
+#include <utility>
 #include <queue>
 #include <stack>
 #include <iostream>
@@ -26,15 +27,29 @@ public:
      */
     void addEdge(const int& src, const int& dest, const double& dist, const string& line);
 
+    /**
+     * Set a node's stop code.
+     * @param n An integer referring to a node.
+     * @param code A stop's code.
+     */
     void setNodeCode(const int& n, const string& code);
 
     /**
-     * Uses bfs to find the shortest path (less nodes). After the bfs, time complexity is O(n).
+     * Makes a path vector from each node's predecessor. Time complexity is O(n).
+     * @param src The starting node.
+     * @param dest The destination node.
+     * @return Returns a vector of pairs containing the stop code and the line used.
+     */
+    vector<pair<string, string> > getPath(const int& src, int dest);
+
+    /**
+     * Uses breadth-first search to find the shortest path (less nodes).
+     * The bfs' time complexity is O(V + E) and after that its O(n) to get the path.
      * @param src The starting node.
      * @param dest The destination node.
      * @return A vector of integers that represent a path from src to dest.
      */
-    vector<string> bfsPath(int src, int dest);
+    vector<pair<string, string> > bfsPath(const int& src, const int& dest);
 
     /**
      * Uses the algorithm of Dijkstra to fin the shortest path (less distance).
@@ -42,7 +57,7 @@ public:
      * @param dest The destination node.
      * @return A vector of integers that represent a path from src to dest.
      */
-    vector<string> dijkstra_dist(const int& src, const int& dest);
+    vector<pair<string, string> > dijkstraPath(const int& src, const int& dest);
 
 private:
    struct Edge {
@@ -56,17 +71,11 @@ private:
        list<Edge> adj;
        bool visited;
        double distance;
-       int predecessor;
+       pair<int, string> predecessor; //predecessor's int and code
    };
 
    vector<Node> nodes;
    int size;
-
-   /**
-    * Breadth-First search. Time complexity is O(V + E).
-    * @param src The starting node for the search.
-    */
-   void bfs(int src);
 
 };
 
