@@ -42,6 +42,11 @@ public:
     */
    vector<Stop> getClosestStops(const Position& src, const int& number_of_stops);
 
+   /**
+    * Reads a path with codes and gets the respective stops.
+    * @param path A vector with codes of stops and lines.
+    * @return A vector with stops and codes of lines.
+    */
    vector<pair<Stop, string> > readPath(const vector<pair<string, string> >& path);
 
    /**
@@ -74,6 +79,8 @@ public:
 
 
 private:
+   string capitalize(const string& sentence) const;
+
    unordered_map<string, Stop> stops; //stops by code
    unordered_map<string, string> lines; //code, name
 

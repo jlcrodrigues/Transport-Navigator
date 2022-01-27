@@ -18,6 +18,8 @@ public:
    string getZone() const;
    Position getPosition() const;
 
+   void setName(const string& name);
+
    /**
     * Defines the Stop from the fields in a csv row.
     * @param row A string with the Stop attributes separated by commas.

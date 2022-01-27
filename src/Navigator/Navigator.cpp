@@ -11,6 +11,7 @@ void Navigator::loadStops(const string &file_path)
     while (getline(file, row))
     {
         stop.loadFromCsv(row);
+        //stop.setName(capitalize(stop.getName()));
         stops_code[stop.getCode()] = i;
         stops[stop.getCode()] = stop;
         i++;
@@ -35,6 +36,7 @@ void Navigator::loadLines(const string &file_path)
         getline(str, code, ',');
         getline(str, name, ',');
         lines[code] = name;
+        //lines[code] = capitalize(name);
     }
 }
 
@@ -108,4 +110,20 @@ unordered_map<string, string> Navigator::getLines() {
 
 unordered_map<string, Stop> Navigator::getStops() {
     return stops;
+}
+
+string Navigator::capitalize(const string &sentence) const
+{
+    string word, result = "";
+    stringstream s(sentence);
+    while (getline(s, word, ' '))
+    {
+       string new_word = "" + word[0];
+       for (int i = 1; i < word.size(); i++)
+       {
+           new_word += tolower(word[i]);
+       }
+       result += new_word;
+    }
+    return result;
 }
