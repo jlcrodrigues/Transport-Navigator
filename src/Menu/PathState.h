@@ -37,6 +37,12 @@ private:
     */
    void fewestStops(App* app);
 
+   /**
+    * Calculate and display the path with the lowest distance between stops.
+    * @param app Pointer to the main application.
+    */
+   void fewestDistance(App* app);
+
    string src;
    string dest;
 };
