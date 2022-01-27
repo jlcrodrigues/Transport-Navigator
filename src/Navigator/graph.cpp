@@ -11,17 +11,22 @@ void Graph::addEdge(const int& src, const int& dest, const double& dist, const s
     nodes[src].adj.push_back({dest, dist, line});
 }
 
-vector<int> Graph::bfsPath(int src, int dest)
+void Graph::setNodeCode(const int& n, const string& code)
+{
+    nodes[n].code = code;
+}
+
+vector<string> Graph::bfsPath(int src, int dest)
 {
     bfs(src);
     if (nodes[dest].predecessor == 0) return {};
-    vector<int> path;
+    vector<string> path;
     while (nodes[dest].predecessor != 0)
     {
-        path.push_back(dest);
+        path.push_back(nodes[dest].code);
         dest = nodes[dest].predecessor;
     }
-    path.push_back(src);
+    path.push_back(nodes[src].code);
     reverse(path.begin(), path.end());
     return path;
 }
@@ -51,17 +56,16 @@ void Graph::bfs(int src) {
     }
 }
 
-vector<int> Graph::dijkstra_dist(int a, int b) {
-    vector<int> path;
+vector<string> Graph::dijkstra_dist(const int& src, const int& dest) {
     for (int i=1;i<=size;i++){
         nodes[i].distance = INT_MAX;
         nodes[i].visited = false;
         nodes[i].predecessor = -1;
     }
-    nodes[a].distance = 0;
+    nodes[src].distance = 0;
     MinHeap<int,int> h (size,-1);
-    h.insert(a,nodes[a].distance);
-    nodes[a].predecessor = a;
+    h.insert(src, nodes[src].distance);
+    nodes[src].predecessor = src;
     while(h.getSize()>0){
         int x = h.removeMin();
         nodes[x].visited = true;
@@ -79,11 +83,13 @@ vector<int> Graph::dijkstra_dist(int a, int b) {
             }
         }
     }
-    path.push_back(b);
-    while(b!=a){
-        b = nodes[b].predecessor;
-        if(b==-1){return {};}
-        path.push_back(b);
+    vector<string> path;
+    int stop = dest;
+    path.push_back(nodes[stop].code);
+    while(stop != src){
+        stop = nodes[stop].predecessor;
+        if (stop == -1) {return {};}
+        path.push_back(nodes[stop].code);
     }
     reverse(path.begin(),path.end());
     return path;

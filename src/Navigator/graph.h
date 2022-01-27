@@ -26,13 +26,15 @@ public:
      */
     void addEdge(const int& src, const int& dest, const double& dist, const string& line);
 
+    void setNodeCode(const int& n, const string& code);
+
     /**
      * Uses bfs to find the shortest path (less nodes). After the bfs, time complexity is O(n).
      * @param src The starting node.
      * @param dest The destination node.
      * @return A vector of integers that represent a path from src to dest.
      */
-    vector<int> bfsPath(int src, int dest);
+    vector<string> bfsPath(int src, int dest);
 
     /**
      * Uses the algorithm of Dijkstra to fin the shortest path (less distance).
@@ -40,7 +42,7 @@ public:
      * @param dest The destination node.
      * @return A vector of integers that represent a path from src to dest.
      */
-    vector<int> dijkstra_dist(int src, int dest);
+    vector<string> dijkstra_dist(const int& src, const int& dest);
 
 private:
    struct Edge {
@@ -50,7 +52,7 @@ private:
    };
 
    struct Node {
-       int src;
+       string code;
        list<Edge> adj;
        bool visited;
        double distance;

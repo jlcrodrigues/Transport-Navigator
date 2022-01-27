@@ -71,18 +71,10 @@ public:
 
 
 private:
-   /**
-    * Get a stop from the associated number.
-    * @param number A number in stops_map.
-    * @return Returns the correspondent stop for the number.
-    */
-   Stop getStop(const int& number);
-
    unordered_map<string, Stop> stops; //stops by code
    unordered_map<string, string> lines; //code, name
 
    map<string, int> stops_code;
-   map<int, string> stops_number;
    Graph network;
 
 };

@@ -2,11 +2,8 @@
 
 PathState::PathState(const string &src, const string &dest)
 {
-    cout << "helo";
-    cout << src << "----" << dest;
     this->src = src;
     this->dest = dest;
-    cout << src << " " << dest;
 }
 
 void PathState::display()
@@ -27,6 +24,7 @@ void PathState::step(App *app)
         switch (option) {
             case 3:
                 fewestDistance(app);
+                return;
             case 2:
                 fewestStops(app);
                 return;
