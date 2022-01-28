@@ -155,7 +155,9 @@ vector<pair<Stop, string> > Navigator::readPath(const vector<pair<string, string
     vector<pair<Stop, string> > result;
     for (int i = 0; i < path.size(); i++)
     {
-        result.push_back({stops[path[i].first], lines[path[i].second]});
+        string line = path[i].second;
+        if (line != "_WALK") line = lines[line];
+        result.push_back({stops[path[i].first], line});
     }
     return result;
 }

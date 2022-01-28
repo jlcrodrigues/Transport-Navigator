@@ -27,6 +27,8 @@ private:
     */
    void printStop(const Stop& stop) const;
 
+   void printLine(const Stop& src, const Stop& dest, const string& line) const;
+
    /**
     * Displays a path.
     * @param path Vector of stops.

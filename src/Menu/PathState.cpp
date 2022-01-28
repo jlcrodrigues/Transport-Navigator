@@ -47,11 +47,25 @@ void PathState::printStop(const Stop &stop) const
     cout << " - "<< stop.getName() << endl;
 }
 
+void PathState::printLine(const Stop &src, const Stop &dest, const string& line) const
+{
+    if (line == "_WALK")
+    {
+        cout << "Walk ";
+        cout << fixed << setprecision(3) << src.getPosition() - dest.getPosition();
+        cout << " km.\n";
+    }
+    else
+    {
+        cout << line << endl;
+    }
+}
+
 void PathState::displayPath(vector<pair<Stop, string> >& path) const
 {
     if (path.size() < 2) cout << "Those stops are not connected.\n";
     string previous_line = path[1].second;
-    cout << path[1].second << endl;
+    printLine(path[0].first, path[1].first, path[1].second);
     printStop(path[0].first);
     cout << "  ...\n";
     for (int i = 1; i < path.size() - 1; i++)
@@ -61,7 +75,7 @@ void PathState::displayPath(vector<pair<Stop, string> >& path) const
             previous_line = path[i + 1].second;
             printStop(path[i].first);
             cout << endl;
-            cout << path[i + 1].second << endl;
+            printLine(path[i].first, path[i + 1].first, path[i + 1].second);
             printStop(path[i].first);
             cout << "  ...\n";
         }
