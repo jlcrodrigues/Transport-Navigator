@@ -12,6 +12,7 @@ set(SOURCE_FILES
 		src/Menu/CoordsState.h
 		src/Menu/InitialState.h
 		src/Menu/PathState.h
+		src/Menu/SettingsState.h
 		src/Menu/State.h
 		src/Navigator/graph.h
 		src/Navigator/Navigator.h
@@ -25,6 +26,7 @@ set(SOURCE_FILES
 		src/Menu/CoordsState.cpp
 		src/Menu/InitialState.cpp
 		src/Menu/PathState.cpp
+		src/Menu/SettingsState.cpp
 		src/Menu/State.cpp
 		src/Navigator/graph.cpp
 		src/Navigator/Navigator.cpp

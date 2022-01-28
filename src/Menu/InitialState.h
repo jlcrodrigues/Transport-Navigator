@@ -5,6 +5,7 @@
 
 #include "State.h"
 #include "ChooseStartState.h"
+#include "SettingsState.h"
 
 class InitialState : public State {
    void step(App* app) override;
