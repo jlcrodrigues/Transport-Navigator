@@ -2,11 +2,8 @@
 
 PathState::PathState(const string &src, const string &dest)
 {
-    cout << "helo";
-    cout << src << "----" << dest;
     this->src = src;
     this->dest = dest;
-    cout << src << " " << dest;
 }
 
 void PathState::display()

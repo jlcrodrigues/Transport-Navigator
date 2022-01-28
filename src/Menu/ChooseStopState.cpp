@@ -2,6 +2,7 @@
 
 void ChooseStopState::display()
 {
+    cout << "Choose a stop.\n";
     cout << "3) Show available lines\n";
     cout << "2) Go back\n";
     cout << "0) Exit\n";
@@ -33,11 +34,14 @@ void ChooseStopState::step(App *app) {
 void ChooseStopState::aux(App *app) {
     displayLines(app);
     string option = readOptionString(app);
+    for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
+
 
     if (!checkLine(app, option)) {
         while (true) {
             cout << "Invalid line. Please try again: \n";
             string option = readOptionString(app);
+            for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
             if (checkLine(app, option)) break;
         }
     }
@@ -52,11 +56,14 @@ void ChooseStopState::aux(App *app) {
 
     displayLines(app);
     option = readOptionString(app);
+    for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
+
 
     if (!checkLine(app, option)) {
         while (true) {
             cout << "Invalid line. Please try again: \n";
             string option = readOptionString(app);
+            for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
             if (checkLine(app, option)) break;
         }
     }
@@ -119,6 +126,7 @@ string ChooseStopState::askStop(App *app) {
     while (true)
     {
         string option = readOptionString(app);
+        for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
 
         for (int i = 0; i < linesStops.size(); i++) {
             if (linesStops[i] == option) return option;
