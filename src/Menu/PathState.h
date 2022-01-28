@@ -19,7 +19,7 @@ public:
    PathState(const string& src, const string& dest);
 
    void step(App* app) override;
-   void display() override;
+   void display(App* app) override;
 private:
    /**
     * Prints a stop with the needed formatting.

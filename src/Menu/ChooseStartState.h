@@ -10,7 +10,7 @@
 
 class ChooseStartState : public State {
     void step(App* app) override;
-    void display() override;
+    void display(App* app) override;
 };
 
 #endif

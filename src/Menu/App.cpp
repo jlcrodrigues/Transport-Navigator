@@ -6,6 +6,7 @@ App::App()
     navigator->loadStops("../data/stops.csv");
     navigator->loadLines("../data/lines.csv");
     navigator->loadLinesStops("../data/");
+    config = new Config();
 }
 
 void App::run()
@@ -19,6 +20,11 @@ void App::run()
 Navigator* App::getNavigator() const
 {
     return navigator;
+}
+
+Config* App::getConfig() const
+{
+    return config;
 }
 
 void App::setState(State* state)

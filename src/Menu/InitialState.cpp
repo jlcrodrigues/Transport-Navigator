@@ -1,6 +1,6 @@
 #include "InitialState.h"
 
-void InitialState::display()
+void InitialState::display(App* app)
 {
     cout << "Initial Page\n";
     cout << "2) Settings\n";

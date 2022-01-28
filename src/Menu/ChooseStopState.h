@@ -7,7 +7,7 @@
 
 class ChooseStopState : public State {
    void step(App* app) override;
-   void display() override;
+   void display(App* app) override;
 private:
     /**
      * Displays all the available lines.

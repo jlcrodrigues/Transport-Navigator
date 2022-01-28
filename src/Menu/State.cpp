@@ -2,7 +2,7 @@
 
 void State::run(App *app)
 {
-    display();
+    display(app);
     step(app);
 }
 

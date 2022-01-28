@@ -6,7 +6,7 @@ PathState::PathState(const string &src, const string &dest)
     this->dest = dest;
 }
 
-void PathState::display()
+void PathState::display(App* app)
 {
     cout << endl;
     cout << "Choose Path option\n";

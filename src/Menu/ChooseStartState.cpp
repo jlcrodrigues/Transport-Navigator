@@ -1,6 +1,6 @@
 #include "ChooseStartState.h"
 
-void ChooseStartState::display()
+void ChooseStartState::display(App* app)
 {
     cout << "\nChoose Start\n";
     cout << "2) Stop\n";

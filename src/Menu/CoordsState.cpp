@@ -1,6 +1,6 @@
 #include "CoordsState.h"
 
-void CoordsState::display()
+void CoordsState::display(App* app)
 {
     cout << "\nInsert the starting position:\n\n";
 }

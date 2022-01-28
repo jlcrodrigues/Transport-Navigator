@@ -3,6 +3,7 @@
 
 #include "../src/Navigator/Navigator.h"
 #include "State.h"
+#include "Config.h"
 
 class State;
 
@@ -21,12 +22,19 @@ public:
    Navigator* getNavigator() const;
 
    /**
+    * Get the app's configuration.
+    * @return Pointer to a config object;
+    */
+   Config* getConfig() const;
+
+   /**
     * Change the app's current state.
     * @param state Any state derived class.
     */
    void setState(State* state);
 
 private:
+   Config* config;
     Navigator* navigator;
     State* state;
 };
