@@ -68,8 +68,45 @@ void Navigator::loadLinesStops(const string& dir_path)
     }
 }
 
+bool Navigator::isClose(const Stop& stop1, const Stop& stop2, const double& distance) const
+{
+    Position pos1 = stop1.getPosition();
+    Position pos2 = stop2.getPosition();
+    return (pos2.getLatitude() < pos1.getLatitude() + distance/69
+        && pos1.getLatitude() - distance/69 < pos2.getLatitude()
+        && pos2.getLongitude() < pos1.getLongitude() + distance/45
+        && pos1.getLongitude() - distance/45 < pos2.getLongitude());
+}
+/*
 void Navigator::connectStops(const double& max_distance)
 {
+    auto t1 = chrono::high_resolution_clock::now();
+    double distance;
+    unordered_map<string, Stop>::iterator i = stops.begin();
+    for (; i != stops.end(); i++)
+    {
+        network.updateWalkingEdges(stops_code[i->first], max_distance);
+        unordered_map<string, Stop>::iterator j = stops.begin();
+        for (; j != stops.end(); j++)
+        {
+            if (isClose(i->second, j->second, max_distance)) {
+                distance = i->second.getPosition() - i->second.getPosition();
+                if (distance <= max_distance) {
+                    if (j != i && !network.connected(stops_code[i->first], stops_code[j->first])) {
+                        network.addEdge(stops_code[i->first], stops_code[j->first], distance, "_WALK");
+                }
+            }
+        }
+        }
+    }
+    auto t2 = chrono::high_resolution_clock::now();
+    auto ms = chrono::duration_cast<chrono::milliseconds>(t2 - t1);
+    cout << ms.count() << "ms\n";
+}
+ */
+void Navigator::connectStops(const double& max_distance)
+{
+    auto t1 = chrono::high_resolution_clock::now();
     map<string, int>::iterator i = stops_code.begin();
     for (; i != stops_code.end(); i++)
     {
@@ -77,14 +114,23 @@ void Navigator::connectStops(const double& max_distance)
         map<string, int>::iterator j = stops_code.begin();
         for (; j != stops_code.end(); j++)
         {
-            if (j != i && !network.connected(i->second, j->second));
+            if (isClose(stops[i->first], stops[j->first], max_distance))
             {
                 double distance = stops[i->first].getPosition() - stops[j->first].getPosition();
                 if (distance <= max_distance)
-                    network.addEdge(i->second, j->second, distance, "_WALK");
+                {
+                    if (j != i && !network.connected(i->second, j->second))
+                    {
+                        double distance = 0;
+                        network.addEdge(i->second, j->second, distance, "_WALK");
+                    }
+                }
             }
         }
     }
+    auto t2 = chrono::high_resolution_clock::now();
+    auto ms = chrono::duration_cast<chrono::milliseconds>(t2 - t1);
+    cout << ms.count() << "ms\n";
 }
 
 vector<Stop> Navigator::getClosestStops(const Position& src, const int& number_of_stops)

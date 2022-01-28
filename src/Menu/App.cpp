@@ -7,7 +7,7 @@ App::App()
     navigator->loadLines("../data/lines.csv");
     navigator->loadLinesStops("../data/");
     config = new Config();
-    //navigator->connectStops(config->getWalkingDistance());
+    navigator->connectStops(config->getWalkingDistance());
 }
 
 void App::run()
