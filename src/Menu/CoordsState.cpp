@@ -2,7 +2,7 @@
 
 void CoordsState::display()
 {
-    cout << "Insert the starting position:\n\n";
+    cout << "\nInsert the starting position:\n\n";
 }
 
 void CoordsState::step(App *app)
@@ -13,7 +13,7 @@ void CoordsState::step(App *app)
     pos = getPosition(app);
     src = chooseStop(app, pos);
 
-    cout << "Choose the destination point:\n";
+    cout << "\nChoose the destination point:\n";
     pos = getPosition(app);
     dest = chooseStop(app, pos);
 

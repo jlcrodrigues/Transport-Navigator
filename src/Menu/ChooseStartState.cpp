@@ -2,7 +2,7 @@
 
 void ChooseStartState::display()
 {
-    cout << "Choose Start\n";
+    cout << "\nChoose Start\n";
     cout << "2) Stop\n";
     cout << "3) Coordinate\n";
     cout << "1) Go back\n";

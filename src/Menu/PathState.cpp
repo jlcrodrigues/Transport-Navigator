@@ -8,6 +8,7 @@ PathState::PathState(const string &src, const string &dest)
 
 void PathState::display()
 {
+    cout << endl;
     cout << "Choose Path option\n";
     cout << "2) Fewest Stops\n";
     cout << "3) Fewest Distance\n";
@@ -71,24 +72,27 @@ void PathState::displayPath(vector<pair<Stop, string> >& path) const
 void PathState::newPath(App *app)
 {
     cout << endl;
+    cout << "New path\n";
     cout << "1) Different route\n";
     cout << "2) Different stops\n";
     cout << "0) Exit\n";
 
-    int option = readOption(app);
+    while(true) {
+        int option = readOption(app);
 
-    switch (option) {
-        case 1:
-            app->setState(new PathState(src, dest));
-            return;
-        case 2:
-            app->setState(new ChooseStartState());
-            return;
-        case 0:
-            app->setState(nullptr);
-            return;
-        default:
-            printInvalidOption();
+        switch (option) {
+            case 1:
+                app->setState(new PathState(src, dest));
+                return;
+            case 2:
+                app->setState(new ChooseStartState());
+                return;
+            case 0:
+                app->setState(nullptr);
+                return;
+            default:
+                printInvalidOption();
+        }
     }
 }
 

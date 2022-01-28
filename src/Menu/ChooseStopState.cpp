@@ -2,7 +2,7 @@
 
 void ChooseStopState::display()
 {
-    cout << "Choose a stop.\n";
+    cout << "\nChoose a stop.\n";
     cout << "3) Show available lines\n";
     cout << "2) Go back\n";
     cout << "0) Exit\n";
@@ -57,7 +57,6 @@ void ChooseStopState::aux(App *app) {
     displayLines(app);
     option = readOptionString(app);
     for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
-
 
     if (!checkLine(app, option)) {
         while (true) {
