@@ -68,6 +68,25 @@ void Navigator::loadLinesStops(const string& dir_path)
     }
 }
 
+void Navigator::connectStops(const double& max_distance)
+{
+    map<string, int>::iterator i = stops_code.begin();
+    for (; i != stops_code.end(); i++)
+    {
+        network.updateWalkingEdges(i->second, max_distance);
+        map<string, int>::iterator j = stops_code.begin();
+        for (; j != stops_code.end(); j++)
+        {
+            if (j != i && !network.connected(i->second, j->second));
+            {
+                double distance = stops[i->first].getPosition() - stops[j->first].getPosition();
+                if (distance <= max_distance)
+                    network.addEdge(i->second, j->second, distance, "_WALK");
+            }
+        }
+    }
+}
+
 vector<Stop> Navigator::getClosestStops(const Position& src, const int& number_of_stops)
 {
     map<double, Stop> distances;

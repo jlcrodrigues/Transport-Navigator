@@ -50,7 +50,7 @@ void SettingsState::changeDistance(App *app)
         }
     }
 
-    app->getConfig()->setWalkingDistance(distance);
+    app->setDistance(distance);
     cout << "\nWalking distance changed to " << distance << " km.\n\n";
     app->setState(new SettingsState());
 }

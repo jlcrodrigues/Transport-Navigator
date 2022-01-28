@@ -35,6 +35,12 @@ public:
    void loadLinesStops(const string& dir_path);
 
    /**
+    * Connects all the stops that are in walking range.
+    * @param max_distance Maximum walking distance.
+    */
+   void connectStops(const double& max_distance);
+
+   /**
     * Calculate the closest n stops to a point in space in O(n) time.
     * @param src The origin point.
     * @param number_of_stops Number of closest stops to be returned.
@@ -73,7 +79,7 @@ public:
 
     /**
      * Getter for stops.
-     * @return Mapp with all the stops.
+     * @return Map with all the stops.
      */
     unordered_map<string, Stop> getStops();
 

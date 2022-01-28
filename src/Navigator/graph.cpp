@@ -17,6 +17,27 @@ void Graph::setNodeCode(const int& n, const string& code)
     nodes[n].predecessor = {0, ""};
 }
 
+bool Graph::connected(const int &src, const int &dest)
+{
+    for (auto e: nodes[src].adj)
+    {
+        if (e.dest == dest) return true;
+    }
+    return false;
+}
+
+void Graph::updateWalkingEdges(const int& src, const double &max_distance)
+{
+    list<Edge>::iterator it = nodes[src].adj.begin();
+    for (; it != nodes[src].adj.end(); it++)
+    {
+        if (max_distance < it->dist && it->line == "_WALK")
+        {
+            it = nodes[src].adj.erase(it);
+        }
+    }
+}
+
 vector<pair<string, string> > Graph::getPath(const int& src, int dest)
 {
     if (nodes[dest].predecessor.first == 0) return {};

@@ -35,6 +35,21 @@ public:
     void setNodeCode(const int& n, const string& code);
 
     /**
+     * Determine if a node connects to another node.
+     * @param src The origin node.
+     * @param dest The destination node.
+     * @return Returns true if node src connects to node dest and false otherwise.
+     */
+    bool connected(const int& src, const int& dest);
+
+    /**
+     * Removes edges that are over the maximum walking distance.
+     * @param src The node to be inspected.
+     * @param max_distance Maximum distance allowed.
+     */
+    void updateWalkingEdges(const int& src, const double& max_distance);
+
+    /**
      * Makes a path vector from each node's predecessor. Time complexity is O(n).
      * @param src The starting node.
      * @param dest The destination node.

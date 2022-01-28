@@ -28,6 +28,12 @@ public:
    Config* getConfig() const;
 
    /**
+    * Changes the maximum walking distance.
+    * @param distance New maximum distance.
+    */
+   void setDistance(const double& distance);
+
+   /**
     * Change the app's current state.
     * @param state Any state derived class.
     */

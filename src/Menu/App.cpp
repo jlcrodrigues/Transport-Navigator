@@ -7,6 +7,7 @@ App::App()
     navigator->loadLines("../data/lines.csv");
     navigator->loadLinesStops("../data/");
     config = new Config();
+    //navigator->connectStops(config->getWalkingDistance());
 }
 
 void App::run()
@@ -25,6 +26,12 @@ Navigator* App::getNavigator() const
 Config* App::getConfig() const
 {
     return config;
+}
+
+void App::setDistance(const double &distance)
+{
+    config->setWalkingDistance(distance);
+    navigator->connectStops(distance);
 }
 
 void App::setState(State* state)
