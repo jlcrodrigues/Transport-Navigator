@@ -3,6 +3,7 @@
 
 #include <string>
 #include <sstream>
+#include <utility>
 #include <unordered_map>
 #include <map>
 #include <vector>
@@ -42,20 +43,27 @@ public:
    vector<Stop> getClosestStops(const Position& src, const int& number_of_stops);
 
    /**
+    * Reads a path with codes and gets the respective stops.
+    * @param path A vector with codes of stops and lines.
+    * @return A vector with stops and codes of lines.
+    */
+   vector<pair<Stop, string> > readPath(const vector<pair<string, string> >& path);
+
+   /**
     * Get the path with the fewest stops.
     * @param src The starting stop.
     * @param dest The destination stop.
-    * @return Vector with the stops from src to dest.
+    * @return Vector with the stops from src to dest and the lines that make each transition.
     */
-   vector<Stop> getFewestStops(const string& src, const string& dest);
+   vector<pair<Stop, string> > getFewestStops(const string& src, const string& dest);
 
    /**
     * Get the path with the fewest distance.
     * @param src The starting stop.
     * @param dest The destination stop.
-    * @return Vector with the stops from src to dest.
+    * @return Vector with the stops from src to dest and the lines that make each transition.
     */
-   vector<Stop> getFewestDistance(const string &src, const string &dest);
+   vector<pair<Stop, string> > getFewestDistance(const string &src, const string &dest);
 
    /**
     * Getter for lines.
@@ -71,18 +79,12 @@ public:
 
 
 private:
-   /**
-    * Get a stop from the associated number.
-    * @param number A number in stops_map.
-    * @return Returns the correspondent stop for the number.
-    */
-   Stop getStop(const int& number);
+   string capitalize(const string& sentence) const;
 
    unordered_map<string, Stop> stops; //stops by code
    unordered_map<string, string> lines; //code, name
 
    map<string, int> stops_code;
-   map<int, string> stops_number;
    Graph network;
 
 };

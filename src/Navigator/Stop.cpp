@@ -8,6 +8,8 @@ string Stop::getZone() const {return zone;}
 
 Position Stop::getPosition() const {return position;}
 
+void Stop::setName(const string &name) {this->name = name;}
+
 void Stop::loadFromCsv(const string &row)
 {
     string col;

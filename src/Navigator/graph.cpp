@@ -11,25 +11,30 @@ void Graph::addEdge(const int& src, const int& dest, const double& dist, const s
     nodes[src].adj.push_back({dest, dist, line});
 }
 
-vector<int> Graph::bfsPath(int src, int dest)
+void Graph::setNodeCode(const int& n, const string& code)
 {
-    bfs(src);
-    if (nodes[dest].predecessor == 0) return {};
-    vector<int> path;
-    while (nodes[dest].predecessor != 0)
-    {
-        path.push_back(dest);
-        dest = nodes[dest].predecessor;
-    }
-    path.push_back(src);
-    reverse(path.begin(), path.end());
-    return path;
+    nodes[n].code = code;
+    nodes[n].predecessor = {0, ""};
 }
 
-void Graph::bfs(int src) {
+vector<pair<string, string> > Graph::getPath(const int& src, int dest)
+{
+    if (nodes[dest].predecessor.first == 0) return {};
+    vector<pair<string, string> > path;
+    do {
+        path.push_back({nodes[dest].code, nodes[dest].predecessor.second});
+        dest = nodes[dest].predecessor.first;
+    } while (dest != 0);
+    reverse(path.begin(), path.end());
+    return path;
+
+}
+
+vector<pair<string, string> > Graph::bfsPath(const int& src, const int& dest)
+{
     for (int v=1; v <= size; v++) {
         nodes[v].visited = false;
-        nodes[v].predecessor = 0;
+        nodes[v].predecessor = {0, ""};
     }
     queue<int> q;
     q.push(src);
@@ -45,30 +50,29 @@ void Graph::bfs(int src) {
                 q.push(w);
                 nodes[w].visited = true;
                 nodes[w].distance = nodes[u].distance + 1;
-                nodes[w].predecessor = u;
+                nodes[w].predecessor = {u, e.line};
             }
         }
     }
+    return getPath(src, dest);
 }
 
-vector<int> Graph::dijkstra_dist(int a, int b) {
-    vector<int> path;
+vector<pair<string, string> > Graph::dijkstraPath(const int& src, const int& dest) {
     for (int i=1;i<=size;i++){
         nodes[i].distance = INT_MAX;
         nodes[i].visited = false;
-        nodes[i].predecessor = -1;
+        nodes[i].predecessor = {0, ""};
     }
-    nodes[a].distance = 0;
+    nodes[src].distance = 0;
     MinHeap<int,int> h (size,-1);
-    h.insert(a,nodes[a].distance);
-    nodes[a].predecessor = a;
+    h.insert(src, nodes[src].distance);
     while(h.getSize()>0){
         int x = h.removeMin();
         nodes[x].visited = true;
         for (Edge e: nodes[x].adj){
             if(!nodes[e.dest].visited && nodes[e.dest].distance > nodes[x].distance + e.dist){
                 nodes[e.dest].distance = nodes[x].distance + e.dist;
-                nodes[e.dest].predecessor = x;
+                nodes[e.dest].predecessor = {x, e.line};
                 if(!h.hasKey(e.dest)){
                     h.insert(e.dest, nodes[e.dest].distance);
                 }
@@ -79,12 +83,5 @@ vector<int> Graph::dijkstra_dist(int a, int b) {
             }
         }
     }
-    path.push_back(b);
-    while(b!=a){
-        b = nodes[b].predecessor;
-        if(b==-1){return {};}
-        path.push_back(b);
-    }
-    reverse(path.begin(),path.end());
-    return path;
+    return getPath(src, dest);
 }

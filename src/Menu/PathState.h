@@ -2,6 +2,8 @@
 #define PATHSTATE_H
 
 #include <iostream>
+#include <utility>
+#include <iomanip>
 
 #include "../src/Navigator/Stop.h"
 #include "State.h"
@@ -20,10 +22,16 @@ public:
    void display() override;
 private:
    /**
+    * Prints a stop with the needed formatting.
+    * @param stop A stop object to display.
+    */
+   void printStop(const Stop& stop) const;
+
+   /**
     * Displays a path.
     * @param path Vector of stops.
     */
-   void displayPath(vector<Stop>& path) const;
+   void displayPath(vector<pair<Stop, string> >& path) const;
 
    /**
     * Choose a new filter or go back to choose different stops.

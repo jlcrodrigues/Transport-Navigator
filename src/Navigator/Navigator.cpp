@@ -11,12 +11,17 @@ void Navigator::loadStops(const string &file_path)
     while (getline(file, row))
     {
         stop.loadFromCsv(row);
+        //stop.setName(capitalize(stop.getName()));
         stops_code[stop.getCode()] = i;
-        stops_number[i] = stop.getCode();
         stops[stop.getCode()] = stop;
         i++;
     }
     network = Graph(i);
+    map<string, int>::iterator it = stops_code.begin();
+    for (; it != stops_code.end(); it++)
+    {
+        network.setNodeCode(it->second, it->first);
+    }
 }
 
 void Navigator::loadLines(const string &file_path)
@@ -31,6 +36,7 @@ void Navigator::loadLines(const string &file_path)
         getline(str, code, ',');
         getline(str, name, ',');
         lines[code] = name;
+        //lines[code] = capitalize(name);
     }
 }
 
@@ -52,7 +58,8 @@ void Navigator::loadLinesStops(const string& dir_path)
                 getline(file, row);
                 if (previous != "") {
                     network.addEdge(stops_code[previous],
-                                    stops_code[row], getStop(stops_code[row]).getPosition() - getStop(stops_code[previous]).getPosition(),
+                                    stops_code[row],
+                                    stops[row].getPosition() - stops[previous].getPosition(),
                                     line.first);
                 }
                 previous = row;
@@ -78,37 +85,23 @@ vector<Stop> Navigator::getClosestStops(const Position& src, const int& number_o
     return result;
 }
 
-vector<Stop> Navigator::getFewestStops(const string &src, const string &dest)
+vector<pair<Stop, string> > Navigator::readPath(const vector<pair<string, string> >& path)
 {
-    vector<Stop> path;
-    vector<int> path_int = network.bfsPath(stops_code[src], stops_code[dest]);
-    cout << path_int.size();
-    for (int i = 0; i < path_int.size(); i++)
+    vector<pair<Stop, string> > result;
+    for (int i = 0; i < path.size(); i++)
     {
-        path.push_back(getStop(path_int[i]));
+        result.push_back({stops[path[i].first], lines[path[i].second]});
     }
-
-    return path;
+    return result;
 }
 
-vector<Stop> Navigator::getFewestDistance(const string &src, const string &dest){
-    vector<Stop> path;
-    vector<int> path_int = network.dijkstra_dist(stops_code[src], stops_code[dest]);
-    for (int i = 0; i < path_int.size(); i++)
-    {
-        path.push_back(getStop(path_int[i]));
-    }
-    return path;
+vector<pair<Stop, string> > Navigator::getFewestStops(const string &src, const string &dest)
+{
+    return readPath(network.bfsPath(stops_code[src], stops_code[dest]));
 }
 
-Stop Navigator::getStop(const int& number)
-{
-    return stops[stops_number[number]];
-    /*
-    map<string, int>::iterator it = stops_map.begin();
-    for (int i = 0; i < number; i++) it++;
-    return stops[it->first];
-     */
+vector<pair<Stop, string> > Navigator::getFewestDistance(const string &src, const string &dest){
+    return readPath(network.dijkstraPath(stops_code[src], stops_code[dest]));
 }
 
 unordered_map<string, string> Navigator::getLines() {
@@ -117,4 +110,20 @@ unordered_map<string, string> Navigator::getLines() {
 
 unordered_map<string, Stop> Navigator::getStops() {
     return stops;
+}
+
+string Navigator::capitalize(const string &sentence) const
+{
+    string word, result = "";
+    stringstream s(sentence);
+    while (getline(s, word, ' '))
+    {
+       string new_word = "" + word[0];
+       for (int i = 1; i < word.size(); i++)
+       {
+           new_word += tolower(word[i]);
+       }
+       result += new_word;
+    }
+    return result;
 }
