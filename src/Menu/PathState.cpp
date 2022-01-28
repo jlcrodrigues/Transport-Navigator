@@ -12,6 +12,7 @@ void PathState::display()
     cout << "Choose Path option\n";
     cout << "2) Fewest Stops\n";
     cout << "3) Fewest Distance\n";
+    cout << "4) Fewest Lines\n";
     cout << "1) Return\n";
     cout << "0) Exit\n";
 }
@@ -23,6 +24,9 @@ void PathState::step(App *app)
         int option = readOption(app);
 
         switch (option) {
+            case 4:
+                fewestLines(app);
+                return;
             case 3:
                 fewestDistance(app);
                 return;
@@ -104,6 +108,12 @@ void PathState::fewestStops(App* app) {
 
 void PathState::fewestDistance(App *app) {
     vector<pair<Stop, string> > path = app->getNavigator()->getFewestDistance(src, dest);
+    displayPath(path);
+    newPath(app);
+}
+
+void PathState::fewestLines(App *app) {
+    vector<pair<Stop, string> > path = app->getNavigator()->getFewestLines(src, dest);
     displayPath(path);
     newPath(app);
 }

@@ -104,6 +104,10 @@ vector<pair<Stop, string> > Navigator::getFewestDistance(const string &src, cons
     return readPath(network.dijkstraPath(stops_code[src], stops_code[dest]));
 }
 
+vector<pair<Stop, string> > Navigator::getFewestLines(const string &src, const string &dest){
+    return readPath(network.lowestLinesPath(stops_code[src], stops_code[dest]));
+}
+
 unordered_map<string, string> Navigator::getLines() {
     return lines;
 }

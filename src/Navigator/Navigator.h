@@ -66,6 +66,14 @@ public:
    vector<pair<Stop, string> > getFewestDistance(const string &src, const string &dest);
 
    /**
+    * Get the path with the fewest amount of lines used.
+    * @param src The starting stop.
+    * @param dest The destination stop.
+    * @return Vector with the stops from src to dest and the lines that make each transition.
+    */
+   vector<pair<Stop, string> > getFewestLines(const string &src, const string &dest);
+
+   /**
     * Getter for lines.
     * @return Map with all the lines.
     */
