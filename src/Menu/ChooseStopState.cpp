@@ -2,9 +2,10 @@
 
 void ChooseStopState::display(App* app)
 {
-    cout << "\nChoose a stop.\n";
-    cout << "3) Show available lines\n";
-    cout << "2) Go back\n";
+    printBreak();
+    cout << "\tChoosing a stop.\n\n";
+    cout << "2) Show available lines\n";
+    cout << "1) Go back\n";
     cout << "0) Exit\n";
 }
 
@@ -12,17 +13,17 @@ void ChooseStopState::step(App *app) {
     while (true) {
         int option = readOption(app);
 
-        if (option == 2) {
+        if (option == 2)
+        {
+            askStop(app);
+            return;
+        }
+        if (option == 1) {
             app->setState(new ChooseStartState());
             return;
         }
         if (option == 0) {
             app->setState(nullptr);
-            return;
-        }
-        if (option == 3)
-        {
-            askStop(app);
             return;
         }
         printInvalidOption();

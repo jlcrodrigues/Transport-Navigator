@@ -2,10 +2,11 @@
 
 void SettingsState::display(App* app)
 {
+    printBreak();
     cout << "Settings\n\n";
-    cout << "Maximum walking distance: ";
+    cout << " - Maximum walking distance: ";
     cout << fixed << setprecision(3) << app->getConfig()->getWalkingDistance() << " km\n";
-    cout << "Time of the day: ";
+    cout << " - Time of the day: ";
     if (app->getConfig()->isDayTravel()) cout << "Day.\n";
     else cout << "Night.\n";
 
@@ -14,7 +15,6 @@ void SettingsState::display(App* app)
     cout << "4) Change time of the day\n";
     cout << "3) Block lines\n";
     cout << "2) Block stops\n";
-    cout << endl;
     cout << "1) Go back\n";
     cout << "0) Exit\n";
 }
@@ -94,11 +94,12 @@ void SettingsState::blockLines(App *app)
 {
     while (true)
     {
-        cout << "\nBlocked lines:\n\n";
+        printBreak();
+        cout << "Blocked lines:\n\n";
         auto it = app->getBlockedLines()->begin();
         for (; it != app->getBlockedLines()->end(); it++)
         {
-            cout << *it << endl;
+            cout << " - " << *it << endl;
         }
 
         cout << endl;
@@ -145,11 +146,12 @@ void SettingsState::blockStops(App *app)
 {
     while (true)
     {
-        cout << "\nBlocked stops:\n\n";
+        printBreak();
+        cout << "Blocked stops:\n\n";
         auto it = app->getBlockedStops()->begin();
         for (; it != app->getBlockedStops()->end(); it++)
         {
-            cout << *it << endl;
+            cout << " - " << *it << endl;
         }
 
         cout << endl;

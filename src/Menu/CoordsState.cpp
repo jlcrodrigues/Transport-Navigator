@@ -2,7 +2,7 @@
 
 void CoordsState::display(App* app)
 {
-    cout << "\nInsert the starting position:\n\n";
+    printBreak();
 }
 
 void CoordsState::step(App *app)
@@ -50,7 +50,7 @@ string CoordsState::chooseStop(App* app, const Position& position) const
 {
     string code = "";
     vector<Stop> stops = app->getNavigator()->getClosestStops(position, 5);
-    cout << "Nearest stops:\n";
+    cout << "\nNearest stops:\n";
     for (auto stop: stops)
     {
         cout << stop.getCode() << " - " << stop.getName() << endl;

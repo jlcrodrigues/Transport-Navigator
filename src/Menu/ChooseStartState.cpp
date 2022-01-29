@@ -2,9 +2,10 @@
 
 void ChooseStartState::display(App* app)
 {
-    cout << "\nChoose Start\n";
-    cout << "2) Stop\n";
-    cout << "3) Coordinate\n";
+    printBreak();
+    cout << "\tSelect locations\n\n";
+    cout << "2) I have a Stop\n";
+    cout << "3) I have a Coordinate\n";
     cout << "1) Go back\n";
     cout << "0) Exit\n";
 }

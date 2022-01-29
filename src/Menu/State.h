@@ -30,6 +30,11 @@ protected:
     string readOptionString(App *app) const;
 
     /**
+     * Print a page break;
+     */
+    void printBreak() const;
+
+    /**
     * Outputs the invalid option message to the console.
     */
    void printInvalidOption() const;

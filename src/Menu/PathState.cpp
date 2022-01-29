@@ -8,13 +8,13 @@ PathState::PathState(const string &src, const string &dest)
 
 void PathState::display(App* app)
 {
-    cout << endl;
-    cout << "Choose Path option\n";
-    cout << "2) Fewest Stops\n";
-    cout << "3) Fewest Distance\n";
-    cout << "4) Fewest Lines\n";
-    cout << "5) Fewest Zones\n";
-    cout << "1) Return\n";
+    printBreak();
+    cout << "\tChoose a path:\n\n";
+    cout << "5) Fewest Stops\n";
+    cout << "4) Least Distance\n";
+    cout << "3) Least line changes\n";
+    cout << "2) Cheapest\n";
+    cout << "1) Go back\n";
     cout << "0) Exit\n";
 }
 
@@ -26,16 +26,16 @@ void PathState::step(App *app)
 
         switch (option) {
             case 5:
-                fewestZones(app);
+                fewestStops(app);
                 return;
             case 4:
-                fewestLines(app);
-                return;
-            case 3:
                 fewestDistance(app);
                 return;
+            case 3:
+                fewestLines(app);
+                return;
             case 2:
-                fewestStops(app);
+                fewestZones(app);
                 return;
             case 1:
                 app->setState(new ChooseStartState());

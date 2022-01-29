@@ -40,6 +40,11 @@ string State::readOptionString(App *app) const {
 
 }
 
+void State::printBreak() const
+{
+    for (int i = 0; i < 40; i++) cout << endl;
+}
+
 void State::printInvalidOption() const
 {
     cout << "Invalid option. Try again.\n";

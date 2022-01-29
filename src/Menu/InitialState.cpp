@@ -2,9 +2,10 @@
 
 void InitialState::display(App* app)
 {
-    cout << "Initial Page\n";
-    cout << "2) Settings\n";
-    cout << "1) Start\n";
+    printBreak();
+    cout << "\tMenu\n\n";
+    cout << "2) Start\n";
+    cout << "1) Settings\n";
     cout << "0) Exit\n";
 }
 
@@ -16,10 +17,10 @@ void InitialState::step(App *app)
 
         switch (option) {
             case 2:
-                app->setState(new SettingsState());
+                app->setState(new ChooseStartState());
                 return;
             case 1:
-                app->setState(new ChooseStartState());
+                app->setState(new SettingsState());
                 return;
             case 0:
                 app->setState(nullptr);
