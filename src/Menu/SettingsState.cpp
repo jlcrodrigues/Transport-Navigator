@@ -10,8 +10,10 @@ void SettingsState::display(App* app)
     else cout << "Night.\n";
 
     cout << endl;
-    cout << "3) Change walking distance\n";
-    cout << "2) Change time of the day\n";
+    cout << "5) Change walking distance\n";
+    cout << "4) Change time of the day\n";
+    cout << "3) Block lines\n";
+    cout << "2) Block stops\n";
     cout << endl;
     cout << "1) Go back\n";
     cout << "0) Exit\n";
@@ -24,11 +26,17 @@ void SettingsState::step(App *app)
         int option = readOption(app);
 
         switch (option) {
-            case 3:
+            case 5:
                 changeDistance(app);
                 return;
-            case 2:
+            case 4:
                 changeTime(app);
+                return;
+            case 3:
+                blockLines(app);
+                return;
+            case 2:
+                blockStops(app);
                 return;
            case 1:
                 app->setState(new InitialState());
@@ -80,4 +88,106 @@ void SettingsState::changeTime(App *app)
     }
     app->setTime(option);
     app->setState(new SettingsState());
+}
+
+void SettingsState::blockLines(App *app)
+{
+    while (true)
+    {
+        cout << "\nBlocked lines:\n\n";
+        auto it = app->getBlockedLines()->begin();
+        for (; it != app->getBlockedLines()->end(); it++)
+        {
+            cout << *it << endl;
+        }
+
+        cout << endl;
+        cout << "3) Add line\n";
+        cout << "2) Remove line\n";
+        cout << "1) Go back\n";
+        cout << "0) Exit\n";
+
+        int option = readOption(app);
+
+        switch (option) {
+            case 3:
+                addLine(app);
+                break;
+            case 2:
+                removeLine(app);
+                break;
+            case 1:
+                app->setState(new SettingsState());
+                return;
+            case 0:
+                app->setState(nullptr);
+                return;
+            default:
+                printInvalidOption();
+        }
+    }
+
+}
+
+void SettingsState::addLine(App* app)
+{
+    string line = chooseLine(app, false);
+    app->getBlockedLines()->insert(line);
+}
+
+void SettingsState::removeLine(App* app)
+{
+    string line = chooseLine(app, false);
+    app->getBlockedLines()->erase(line);
+}
+
+void SettingsState::blockStops(App *app)
+{
+    while (true)
+    {
+        cout << "\nBlocked stops:\n\n";
+        auto it = app->getBlockedStops()->begin();
+        for (; it != app->getBlockedStops()->end(); it++)
+        {
+            cout << *it << endl;
+        }
+
+        cout << endl;
+        cout << "3) Add stop\n";
+        cout << "2) Remove stop\n";
+        cout << "1) Go back\n";
+        cout << "0) Exit\n";
+
+        int option = readOption(app);
+
+        switch (option) {
+            case 3:
+                addStop(app);
+                break;
+            case 2:
+                removeStop(app);
+                break;
+            case 1:
+                app->setState(new SettingsState());
+                return;
+            case 0:
+                app->setState(nullptr);
+                return;
+            default:
+                printInvalidOption();
+        }
+    }
+
+}
+
+void SettingsState::addStop(App* app)
+{
+    string stop = chooseStop(app);
+    app->getBlockedStops()->insert(stop);
+}
+
+void SettingsState::removeStop(App* app)
+{
+    string stop = chooseStop(app);
+    app->getBlockedStops()->erase(stop);
 }

@@ -20,143 +20,27 @@ void ChooseStopState::step(App *app) {
             app->setState(nullptr);
             return;
         }
-
         if (option == 3)
         {
-            aux(app);
-            app->setState(new PathState(src, dest));
+            askStop(app);
             return;
         }
         printInvalidOption();
     }
 }
 
-void ChooseStopState::aux(App *app) {
-    displayLines(app);
-    string option = readOptionString(app);
-    for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
+void ChooseStopState::askStop(App* app) const
+{
+    string src, dest;
 
-    if (!checkLine(app, option)) {
-        while (true) {
-            cout << "Invalid line. Please try again: \n";
-            string option = readOptionString(app);
-            for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
-            if (checkLine(app, option)) break;
-        }
-    }
+    src = chooseStop(app);
+    dest = chooseStop(app);
 
-    int dir = askDirection(app);
-    string path = "../data/line_" + option + "_" + to_string(dir) + ".csv";
-    loadLinesStops(path);
-    displayLinesStops(app, path);
-
-    cout << "Insert the code of source stop: ";
-    src = askStop(app);
-
-    displayLines(app);
-    option = readOptionString(app);
-    for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
-
-    if (!checkLine(app, option)) {
-        while (true) {
-            cout << "Invalid line. Please try again: \n";
-            string option = readOptionString(app);
-            for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
-            if (checkLine(app, option)) break;
-        }
-    }
-
-    dir = askDirection(app);
-    path = "../data/line_" + option + "_" + to_string(dir) + ".csv";
-    loadLinesStops(path);
-    displayLinesStops(app, path);
-
-    cout << "Insert the code of destination stop: ";
-    dest = askStop(app);
-
-    while(src == dest) {
-        cout << "Source stop and destination source must be different. Try another destination stop: ";
-        dest = askStop(app);
-    }
-
-    cout << "You chose source stop " << src << " and destination stop " << dest << "\n";
-}
-
-
-
-void ChooseStopState::displayLines(App *app) {
-    cout << "\nCode: " << "Name\n\n";
-    for (auto l: app->getNavigator()->getLines())
+    while (src == dest)
     {
-        if (app->getConfig()->isDayTravel() == (l.first.back() == 'M')) continue;
-        cout << l.first << ": " << l.second << "\n";
+        cout << "Starting stop and destination stop can't be the same.\n";
+        dest = chooseStop(app);
     }
-    cout << "\nInsert the code of the wanted line:";
 
-}
-
-void ChooseStopState::displayLinesStops(App *app, string path) {
-    fstream file(path);
-    string row;
-    getline(file, row);
-    cout << "\n";
-    while (getline(file, row)) {
-        cout << row << " - " << app->getNavigator()->getStops()[row].getName() << "\n";
-    }
-    file.close();
-}
-
-
-
-
-int ChooseStopState::askDirection(App *app) {
-    cout << "Choose a direction (0 or 1): ";
-    while (true) {
-        int option = readOption(app);
-        switch (option) {
-            case 1: return 1;
-            case 0: return 0;
-            default: printInvalidOption();
-        }
-    }
-}
-
-string ChooseStopState::askStop(App *app) {
-    while (true)
-    {
-        string option = readOptionString(app);
-        for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
-
-        for (int i = 0; i < linesStops.size(); i++) {
-            if (linesStops[i] == option) return option;
-        }
-        cout << "Invalid stop. Try again\n";
-    }
-}
-
-
-
-
-
-void ChooseStopState::loadLinesStops(string path) {
-    if (!linesStops.empty()) linesStops.clear();
-
-    fstream file(path);
-    string row;
-    getline(file, row);
-    while (getline(file, row)) {
-        linesStops.push_back(row);
-    }
-    file.close();
-}
-
-bool ChooseStopState::checkLine(App *app, string option) {
-    for (auto line: app->getNavigator()->getLines()) {
-        if (option == line.first) {
-            if (app->getConfig()->isDayTravel() == (line.first.back() == 'M')) continue;
-            cout << "You chose line: " << line.second << "\n";
-            return true;
-        }
-    }
-    return false;
+    app->setState(new PathState(src, dest));
 }
