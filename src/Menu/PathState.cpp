@@ -67,7 +67,10 @@ void PathState::printLine(const Stop &src, const Stop &dest, const string& line)
 
 void PathState::displayPath(vector<pair<Stop, string> >& path) const
 {
-    if (path.size() < 2) cout << "Those stops are not connected.\n";
+    if (path.size() < 2) {
+        cout << "Those stops are not connected.\n";
+        return;
+    }
     string previous_line = path[1].second;
     printLine(path[0].first, path[1].first, path[1].second);
     printStop(path[0].first);
@@ -88,8 +91,8 @@ void PathState::displayPath(vector<pair<Stop, string> >& path) const
 
     cout << endl << endl;
 
-    for (auto p: path) cout << p.first.getCode() << " "
-    << p.first.getName() << " " << p.second << endl;
+    //for (auto p: path) cout << p.first.getCode() << " "
+    //<< p.first.getName() << " " << p.second << endl;
 }
 
 void PathState::newPath(App *app)

@@ -52,6 +52,12 @@ public:
    void connectStops(const double& max_distance);
 
    /**
+    * Changes the time of the day in the network.
+    * @param time True for day travelling and false for night journeys.
+    */
+   void setTime(const double& time);
+
+   /**
     * Calculate the closest n stops to a point in space in O(n) time.
     * @param src The origin point.
     * @param number_of_stops Number of closest stops to be returned.

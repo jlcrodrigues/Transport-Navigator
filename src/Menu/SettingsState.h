@@ -13,6 +13,8 @@ public:
 private:
    void changeDistance(App* app);
 
+   void changeTime(App* app);
+
 };
 
 

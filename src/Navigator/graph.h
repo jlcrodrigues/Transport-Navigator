@@ -77,6 +77,12 @@ public:
      */
     vector<pair<string, string> > leastLinesPath(const int& src, const int& dest);
 
+    /**
+     * Change the time of the day.
+     * @param time True for day travelling and false for night journeys.
+     */
+    void setTime(const bool& time);
+
 private:
    /**
     * Chooses which line to take between to stops in order to avoid unnecessary changes.
@@ -96,6 +102,8 @@ private:
     */
    vector<pair<string, string> > getPath(const int& src, int dest);
 
+   bool validLine(const string& code);
+
    struct Edge {
        int dest;
        double dist;
@@ -112,6 +120,7 @@ private:
 
    vector<Node> nodes;
    int size;
+   bool day_travel;
 
 };
 
