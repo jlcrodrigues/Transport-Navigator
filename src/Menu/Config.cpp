@@ -2,7 +2,7 @@
 
 Config::Config()
 {
-    this->maximum_walking_distance = 1;
+    this->maximum_walking_distance = 0.2;
     this->daytime = true;
 }
 

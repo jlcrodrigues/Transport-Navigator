@@ -83,6 +83,12 @@ public:
      */
     void setTime(const bool& time);
 
+    /**
+     * Change the maximum walking distance.
+     * @param distance New maximum distance.
+     */
+    void setWalkingDistance(const double& distance);
+
 private:
    /**
     * Chooses which line to take between to stops in order to avoid unnecessary changes.
@@ -102,6 +108,11 @@ private:
     */
    vector<pair<string, string> > getPath(const int& src, int dest);
 
+   /**
+    * Checks if a line is available.
+    * @param code The line code.
+    * @return Returns true if the line can be used.
+    */
    bool validLine(const string& code);
 
    struct Edge {
@@ -115,11 +126,13 @@ private:
        list<Edge> adj;
        bool visited;
        double distance;
+       double distance_walked;
        pair<int, string> predecessor; //predecessor's int and code
    };
 
    vector<Node> nodes;
    int size;
+   double walking_distance;
    bool day_travel;
 
 };

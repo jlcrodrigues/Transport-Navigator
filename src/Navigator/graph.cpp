@@ -44,6 +44,7 @@ vector<pair<string, string> > Graph::bfsPath(const int& src, const int& dest)
     for (int v=1; v <= size; v++) {
         nodes[v].visited = false;
         nodes[v].predecessor = {0, ""};
+        nodes[v].distance_walked = 0;
     }
     queue<int> q;
     q.push(src);
@@ -55,11 +56,15 @@ vector<pair<string, string> > Graph::bfsPath(const int& src, const int& dest)
         for (auto e : nodes[u].adj)
         {
             int w = e.dest;
-            if (!nodes[w].visited && e.line != "_WALK" && validLine(e.line)) {
-                q.push(w);
-                nodes[w].visited = true;
-                nodes[w].distance = nodes[u].distance + 1;
-                nodes[w].predecessor = {u, chooseLine(u, w, e.line, nodes[u].predecessor.second)};
+            if (!nodes[w].visited && validLine(e.line)) {
+                if (!(walking_distance < nodes[u].distance_walked && e.line == "_WALK")) {
+                    q.push(w);
+                    nodes[w].visited = true;
+                    nodes[w].distance = nodes[u].distance + 1;
+                    nodes[w].predecessor = {u, chooseLine(u, w, e.line, nodes[u].predecessor.second)};
+                    nodes[w].distance_walked = nodes[u].distance_walked;
+                    if (e.line == "_WALK") nodes[w].distance_walked += e.dist;
+                }
             }
         }
     }
@@ -82,13 +87,14 @@ vector<pair<string, string> > Graph::dijkstraPath(const int &src, const int &des
             if (!nodes[e.dest].visited
                     && nodes[e.dest].distance > nodes[x].distance + e.dist
                     && validLine(e.line)) {
-                nodes[e.dest].distance = nodes[x].distance + e.dist;
-                nodes[e.dest].predecessor = {x, chooseLine(x, e.dest, e.line, nodes[x].predecessor.second)};
-                if (!h.hasKey(e.dest)) {
-                    h.insert(e.dest, nodes[e.dest].distance);
-                } else {
-                    h.decreaseKey(e.dest, nodes[e.dest].distance);
-
+                if (nodes[x].predecessor.second != "_WALK" || e.line != "_WALK") {
+                    nodes[e.dest].distance = nodes[x].distance + e.dist;
+                    nodes[e.dest].predecessor = {x, chooseLine(x, e.dest, e.line, nodes[x].predecessor.second)};
+                    if (!h.hasKey(e.dest)) {
+                        h.insert(e.dest, nodes[e.dest].distance);
+                    } else {
+                        h.decreaseKey(e.dest, nodes[e.dest].distance);
+                    }
                 }
             }
         }
@@ -101,6 +107,7 @@ vector<pair<string, string> > Graph::leastLinesPath(const int &src, const int &d
         nodes[i].distance = INT_MAX;
         nodes[i].visited = false;
         nodes[i].predecessor = {0, ""};
+        nodes[i].distance_walked = 0;
     }
     nodes[src].distance = 0;
     MinHeap<int,int> h (size,-1);
@@ -112,17 +119,19 @@ vector<pair<string, string> > Graph::leastLinesPath(const int &src, const int &d
             if(!nodes[e.dest].visited
                     && nodes[e.dest].distance > nodes[x].distance
                     && validLine(e.line)){
-                nodes[e.dest].distance = nodes[x].distance;
-                if(e.line!=nodes[x].predecessor.second){
-                    nodes[e.dest].distance = nodes[x].distance + 1;
-                }
-                nodes[e.dest].predecessor = {x, chooseLine(x, e.dest, e.line, nodes[x].predecessor.second)};
-                if(!h.hasKey(e.dest)){
-                    h.insert(e.dest, nodes[e.dest].distance);
-                }
-                else{
-                    h.decreaseKey(e.dest, nodes[e.dest].distance);
-
+                if (!(walking_distance < nodes[x].distance_walked && e.line == "_WALK")) {
+                    nodes[e.dest].distance = nodes[x].distance;
+                    if (e.line != nodes[x].predecessor.second) {
+                        nodes[e.dest].distance = nodes[x].distance + 1;
+                    }
+                    nodes[e.dest].predecessor = {x, chooseLine(x, e.dest, e.line, nodes[x].predecessor.second)};
+                    if (!h.hasKey(e.dest)) {
+                        h.insert(e.dest, nodes[e.dest].distance);
+                    } else {
+                        h.decreaseKey(e.dest, nodes[e.dest].distance);
+                    }
+                    nodes[e.dest].distance_walked = nodes[x].distance_walked;
+                    if (e.line == "_WALK") nodes[e.dest].distance_walked += e.dist;
                 }
             }
         }
@@ -131,6 +140,8 @@ vector<pair<string, string> > Graph::leastLinesPath(const int &src, const int &d
 }
 
 void Graph::setTime(const bool &time) {day_travel = time;}
+
+void Graph::setWalkingDistance(const double &distance) {walking_distance = distance;}
 
 string Graph::chooseLine(const int& src, const int& dest, const string& current, const string& prev) const
 {

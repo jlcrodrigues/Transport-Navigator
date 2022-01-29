@@ -80,6 +80,7 @@ bool Navigator::isClose(const Stop& stop1, const Stop& stop2, const double& dist
 
 void Navigator::connectStops(const double& max_distance)
 {
+    network.setWalkingDistance(max_distance);
     map<string, int>::iterator i = stops_code.begin();
     for (; i != stops_code.end(); i++)
     {
@@ -94,7 +95,7 @@ void Navigator::connectStops(const double& max_distance)
                 {
                     if (j != i && !network.connected(i->second, j->second))
                     {
-                        network.addEdge(i->second, j->second, distance * 5, "_WALK");
+                        network.addEdge(i->second, j->second, distance, "_WALK");
                     }
                 }
             }

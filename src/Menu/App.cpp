@@ -7,6 +7,7 @@ App::App()
     navigator->loadLines("../data/lines.csv");
     navigator->loadLinesStops("../data/");
     config = new Config();
+    navigator->setTime(config->isDayTravel());
     navigator->connectStops(config->getWalkingDistance());
 }
 
