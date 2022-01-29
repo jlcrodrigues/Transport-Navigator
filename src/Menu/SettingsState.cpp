@@ -188,6 +188,6 @@ void SettingsState::addStop(App* app)
 
 void SettingsState::removeStop(App* app)
 {
-    string stop = chooseLine(app);
+    string stop = chooseStop(app);
     app->getBlockedStops()->erase(stop);
 }
