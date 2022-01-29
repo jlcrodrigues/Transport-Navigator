@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <iomanip>
+#include <set>
+#include <vector>
 
 #include "App.h"
 
@@ -42,9 +44,10 @@ protected:
    /**
     * Lets the user choose a valid line.
     * @param app Pointer to the main application.
+    * @param directed True if the direction is needed.
     * @return Returns a string with the line code and direction.
     */
-   string chooseLine(App* app) const;
+   string chooseLine(App* app, bool directed = true) const;
 
    /**
     * Handle the specific events in each state.

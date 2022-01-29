@@ -6,8 +6,10 @@ App::App()
     navigator->loadStops("../data/stops.csv");
     navigator->loadLines("../data/lines.csv");
     navigator->loadLinesStops("../data/");
+    blocked_lines = new set<string>;
     config = new Config();
     navigator->setTime(config->isDayTravel());
+    navigator->setBlockedSet(blocked_lines);
     navigator->connectStops(config->getWalkingDistance());
 }
 
@@ -40,6 +42,11 @@ void App::setTime(const string& time_frame)
     if (time_frame == "night") config->setNightTime();
     else config->setDayTime();
     navigator->setTime(config->isDayTravel());
+}
+
+set<string>* App::getBlockedLines()
+{
+    return blocked_lines;
 }
 
 void App::setState(State* state)

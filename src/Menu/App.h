@@ -1,6 +1,8 @@
 #ifndef APP_H
 #define APP_H
 
+#include <set>
+
 #include "../src/Navigator/Navigator.h"
 #include "State.h"
 #include "Config.h"
@@ -40,6 +42,12 @@ public:
    void setTime(const string& time_frame);
 
    /**
+    * Get the set of blocked lines.
+    * @return String set with all the blocked lines.
+    */
+   set<string>* getBlockedLines();
+
+   /**
     * Change the app's current state.
     * @param state Any state derived class.
     */
@@ -49,6 +57,8 @@ private:
    Config* config;
     Navigator* navigator;
     State* state;
+
+    set<string>* blocked_lines;
 };
 
 

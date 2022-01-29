@@ -108,6 +108,11 @@ void Navigator::setTime(const double &time)
     network.setTime(time);
 }
 
+void Navigator::setBlockedSet(set<string> *lines)
+{
+    network.setBlockedSet(lines);
+}
+
 vector<Stop> Navigator::getClosestStops(const Position& src, const int& number_of_stops)
 {
     map<double, Stop> distances;

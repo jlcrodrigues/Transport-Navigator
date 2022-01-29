@@ -183,6 +183,11 @@ void Graph::setTime(const bool &time) {day_travel = time;}
 
 void Graph::setWalkingDistance(const double &distance) {walking_distance = distance;}
 
+void Graph::setBlockedSet(set<string> *lines)
+{
+    this->blocked_lines = lines;
+}
+
 string Graph::chooseLine(const int& src, const int& dest, const string& current, const string& prev) const
 {
     for (auto e: nodes[src].adj)
@@ -209,5 +214,12 @@ vector<pair<string, string> > Graph::getPath(const int& src, int dest)
 
 bool Graph::validLine(const string &code)
 {
-    return (day_travel != (code.back() == 'M')); //XOR
+    if (day_travel == (code.back() == 'M')) return false;
+
+    auto it = blocked_lines->begin();
+    for (; it != blocked_lines->end(); it++)
+    {
+        if (code == *it) return false;
+    }
+    return true;
 }

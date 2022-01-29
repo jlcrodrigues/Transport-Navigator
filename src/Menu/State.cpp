@@ -66,7 +66,7 @@ string State::chooseStop(App *app) const
     return stop;
 }
 
-string State::chooseLine(App* app) const
+string State::chooseLine(App* app, bool directed) const
 {
     string line;
     displayLines(app);
@@ -80,13 +80,14 @@ string State::chooseLine(App* app) const
         for_each(line.begin(), line.end(), [](char &c) { c = ::toupper(c); });
     }
 
-    if (line == "300" || line == "301" ||line == "302" || line == "303")
+    if (!directed) return line;
+
+    if (line == "300" || line == "301" || line == "302" || line == "303")
         return (line + "_0");
 
     cout << "Choose a direction (0 or 1):\n";
     int dir = readOption(app);
-    while (dir != 0 && dir != 1)
-    {
+    while (dir != 0 && dir != 1) {
         printInvalidOption();
         dir = readOption(app);
     }

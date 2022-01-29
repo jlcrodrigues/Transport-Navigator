@@ -58,6 +58,12 @@ public:
    void setTime(const double& time);
 
    /**
+    * Set the pointers to the blocked sets.
+    * @param lines Set of strings with the blocked lines.
+    */
+   void setBlockedSet(set<string>* lines);
+
+   /**
     * Calculate the closest n stops to a point in space in O(n) time.
     * @param src The origin point.
     * @param number_of_stops Number of closest stops to be returned.

@@ -5,6 +5,7 @@
 #include <list>
 #include <utility>
 #include <queue>
+#include <set>
 #include <stack>
 #include <iostream>
 #include <climits>
@@ -98,6 +99,12 @@ public:
      */
     void setWalkingDistance(const double& distance);
 
+    /**
+     * Set the pointers to the blocked sets.
+     * @param lines Set of strings with the blocked lines.
+     */
+    void setBlockedSet(set<string>* lines);
+
 private:
    /**
     * Chooses which line to take between to stops in order to avoid unnecessary changes.
@@ -144,6 +151,7 @@ private:
    int size;
    double walking_distance;
    bool day_travel;
+   set<string>* blocked_lines;
 
 };
 
