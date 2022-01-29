@@ -59,6 +59,12 @@ private:
     */
    void fewestLines(App* app);
 
+   /**
+    * Calculate and display the cheapest path between stops.
+    * @param app Pointer to the main application.
+    */
+   void fewestZones(App* app);
+
    string src;
    string dest;
 };
