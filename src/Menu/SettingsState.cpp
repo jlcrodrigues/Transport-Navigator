@@ -35,6 +35,9 @@ void SettingsState::step(App *app)
             case 3:
                 blockLines(app);
                 return;
+            case 2:
+                blockStops(app);
+                return;
            case 1:
                 app->setState(new InitialState());
                 return;
@@ -136,4 +139,55 @@ void SettingsState::removeLine(App* app)
 {
     string line = chooseLine(app, false);
     app->getBlockedLines()->erase(line);
+}
+
+void SettingsState::blockStops(App *app)
+{
+    while (true)
+    {
+        cout << "\nBlocked stops:\n\n";
+        auto it = app->getBlockedStops()->begin();
+        for (; it != app->getBlockedStops()->end(); it++)
+        {
+            cout << *it << endl;
+        }
+
+        cout << endl;
+        cout << "3) Add stop\n";
+        cout << "2) Remove stop\n";
+        cout << "1) Go back\n";
+        cout << "0) Exit\n";
+
+        int option = readOption(app);
+
+        switch (option) {
+            case 3:
+                addStop(app);
+                break;
+            case 2:
+                removeStop(app);
+                break;
+            case 1:
+                app->setState(new SettingsState());
+                return;
+            case 0:
+                app->setState(nullptr);
+                return;
+            default:
+                printInvalidOption();
+        }
+    }
+
+}
+
+void SettingsState::addStop(App* app)
+{
+    string stop = chooseStop(app);
+    app->getBlockedStops()->insert(stop);
+}
+
+void SettingsState::removeStop(App* app)
+{
+    string stop = chooseLine(app);
+    app->getBlockedStops()->erase(stop);
 }

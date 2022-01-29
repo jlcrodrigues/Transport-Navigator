@@ -60,8 +60,9 @@ public:
    /**
     * Set the pointers to the blocked sets.
     * @param lines Set of strings with the blocked lines.
+    * @param stops Set of string with blocked stops.
     */
-   void setBlockedSet(set<string>* lines);
+   void setBlockedSet(set<string>* lines, set<string>* stops);
 
    /**
     * Calculate the closest n stops to a point in space in O(n) time.

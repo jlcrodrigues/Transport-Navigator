@@ -48,6 +48,12 @@ public:
    set<string>* getBlockedLines();
 
    /**
+    * Get the set of blocked stops.
+    * @return String set with all the blocked stops.
+    */
+   set<string>* getBlockedStops();
+
+   /**
     * Change the app's current state.
     * @param state Any state derived class.
     */
@@ -59,6 +65,7 @@ private:
     State* state;
 
     set<string>* blocked_lines;
+    set<string>* blocked_stops;
 };
 
 

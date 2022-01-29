@@ -102,8 +102,9 @@ public:
     /**
      * Set the pointers to the blocked sets.
      * @param lines Set of strings with the blocked lines.
+     * @param stops Set of string with blocked stops.
      */
-    void setBlockedSet(set<string>* lines);
+    void setBlockedSet(set<string>* lines, set<string>* stops);
 
 private:
    /**
@@ -131,6 +132,13 @@ private:
     */
    bool validLine(const string& code);
 
+   /**
+    * Checks if a stop can be used.
+    * @param code A code to a stop.
+    * @return Returns false if the stop is blocked and true otherwise;
+    */
+   bool validStop(const string& code);
+
    struct Edge {
        int dest;
        double dist;
@@ -152,6 +160,7 @@ private:
    double walking_distance;
    bool day_travel;
    set<string>* blocked_lines;
+   set<string>* blocked_stops;
 
 };
 

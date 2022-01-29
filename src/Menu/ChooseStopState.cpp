@@ -36,7 +36,7 @@ void ChooseStopState::askStop(App* app) const
     src = chooseStop(app);
     dest = chooseStop(app);
 
-    while (src != dest)
+    while (src == dest)
     {
         cout << "Starting stop and destination stop can't be the same.\n";
         dest = chooseStop(app);

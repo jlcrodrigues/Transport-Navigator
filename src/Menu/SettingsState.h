@@ -41,6 +41,23 @@ private:
     */
    void removeLine(App* app);
 
+   /**
+    * Block stops.
+    * @param app Pointer to the main application.
+    */
+   void blockStops(App* app);
+
+   /**
+    * Add a stop to the list of blocked ones.
+    * @param app Pointer to the main application.
+    */
+    void addStop(App* app);
+
+    /**
+     * Remove a stop from the list of blocked ones.
+     * @param app Pointer to the main application.
+     */
+    void removeStop(App* app);
 };
 
 
