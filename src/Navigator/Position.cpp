@@ -5,6 +5,11 @@ Position::Position(const double &latitude, const double &longitude)
     this->latitude = latitude;
     this->longitude = longitude;
 }
+
+double Position::getLatitude() const {return latitude;}
+
+double Position::getLongitude() const {return longitude;}
+
 double Position::operator - (const Position &pos) const
 {
     double dLat = (this->latitude - pos.latitude) * M_PI / 180.0;
@@ -18,9 +23,8 @@ double Position::operator - (const Position &pos) const
     double d = 2 * rad * asin(sqrt(rav));
     return d;
 }
-//TODO
+
 bool Position::operator == (const Position &pos) const
 {
-    if (this->latitude == pos.latitude && this->longitude == pos.longitude) return true;
-    return false;
+    return (this->latitude == pos.latitude && this->longitude == pos.longitude);
 }

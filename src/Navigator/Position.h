@@ -8,6 +8,10 @@ public:
 
    Position(const double& latitude, const double& longitude);
 
+   double getLatitude() const;
+
+   double getLongitude() const;
+
    double operator - (const Position& pos) const;
 
    bool operator == (const Position& pos) const;

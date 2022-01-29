@@ -1,6 +1,6 @@
 #include "ChooseStopState.h"
 
-void ChooseStopState::display()
+void ChooseStopState::display(App* app)
 {
     cout << "\nChoose a stop.\n";
     cout << "3) Show available lines\n";

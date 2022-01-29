@@ -11,7 +11,7 @@
 class CoordsState : public State {
 public:
    void step(App* app) override;
-   void display() override;
+   void display(App* app) override;
 private:
    /**
     * Read a position from user input.

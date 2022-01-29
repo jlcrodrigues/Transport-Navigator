@@ -19,13 +19,15 @@ public:
    PathState(const string& src, const string& dest);
 
    void step(App* app) override;
-   void display() override;
+   void display(App* app) override;
 private:
    /**
     * Prints a stop with the needed formatting.
     * @param stop A stop object to display.
     */
    void printStop(const Stop& stop) const;
+
+   void printLine(const Stop& src, const Stop& dest, const string& line) const;
 
    /**
     * Displays a path.

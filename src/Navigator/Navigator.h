@@ -35,6 +35,23 @@ public:
    void loadLinesStops(const string& dir_path);
 
    /**
+    * Checks if a stop is inside a radius in each direction.
+    * This can be used to avoid computing the Haversine formula, which is expensive.
+    * @param stop1 Origin stop.
+    * @param stop2 Destination stop.
+    * @param distance Minimum distance between the stops.
+    * @return Returns true if the stops are closer than distance in each direction.
+    */
+   bool isClose(const Stop& stop1, const Stop& stop2, const double& distance) const;
+
+   /**
+    * Connects all the stops that are in walking range. This is done in O(n^2).
+    *
+    * @param max_distance Maximum walking distance.
+    */
+   void connectStops(const double& max_distance);
+
+   /**
     * Calculate the closest n stops to a point in space in O(n) time.
     * @param src The origin point.
     * @param number_of_stops Number of closest stops to be returned.
@@ -81,7 +98,7 @@ public:
 
     /**
      * Getter for stops.
-     * @return Mapp with all the stops.
+     * @return Map with all the stops.
      */
     unordered_map<string, Stop> getStops();
 

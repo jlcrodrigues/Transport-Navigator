@@ -2,6 +2,7 @@
 #define STATE_H
 
 #include <iostream>
+#include <iomanip>
 
 #include "App.h"
 
@@ -40,8 +41,9 @@ protected:
 
    /**
     * Display the specific contents of each state.
+    * @param app Pointer to the main application.
     */
-   virtual void display() {}
+   virtual void display(App* app) {}
 
 };
 

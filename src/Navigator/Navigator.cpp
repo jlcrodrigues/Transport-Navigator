@@ -68,6 +68,40 @@ void Navigator::loadLinesStops(const string& dir_path)
     }
 }
 
+bool Navigator::isClose(const Stop& stop1, const Stop& stop2, const double& distance) const
+{
+    Position pos1 = stop1.getPosition();
+    Position pos2 = stop2.getPosition();
+    return (pos2.getLatitude() < pos1.getLatitude() + distance/69
+        && pos1.getLatitude() - distance/69 < pos2.getLatitude()
+        && pos2.getLongitude() < pos1.getLongitude() + distance/45
+        && pos1.getLongitude() - distance/45 < pos2.getLongitude());
+}
+
+void Navigator::connectStops(const double& max_distance)
+{
+    map<string, int>::iterator i = stops_code.begin();
+    for (; i != stops_code.end(); i++)
+    {
+        network.updateWalkingEdges(i->second, max_distance);
+        map<string, int>::iterator j = stops_code.begin();
+        for (; j != stops_code.end(); j++)
+        {
+            if (isClose(stops[i->first], stops[j->first], max_distance))
+            {
+                double distance = stops[i->first].getPosition() - stops[j->first].getPosition();
+                if (distance <= max_distance)
+                {
+                    if (j != i && !network.connected(i->second, j->second))
+                    {
+                        network.addEdge(i->second, j->second, distance * 5, "_WALK");
+                    }
+                }
+            }
+        }
+    }
+}
+
 vector<Stop> Navigator::getClosestStops(const Position& src, const int& number_of_stops)
 {
     map<double, Stop> distances;
@@ -90,7 +124,9 @@ vector<pair<Stop, string> > Navigator::readPath(const vector<pair<string, string
     vector<pair<Stop, string> > result;
     for (int i = 0; i < path.size(); i++)
     {
-        result.push_back({stops[path[i].first], lines[path[i].second]});
+        string line = path[i].second;
+        if (line != "_WALK") line = lines[line];
+        result.push_back({stops[path[i].first], line});
     }
     return result;
 }
@@ -105,7 +141,7 @@ vector<pair<Stop, string> > Navigator::getFewestDistance(const string &src, cons
 }
 
 vector<pair<Stop, string> > Navigator::getFewestLines(const string &src, const string &dest){
-    return readPath(network.lowestLinesPath(stops_code[src], stops_code[dest]));
+    return readPath(network.leastLinesPath(stops_code[src], stops_code[dest]));
 }
 
 unordered_map<string, string> Navigator::getLines() {

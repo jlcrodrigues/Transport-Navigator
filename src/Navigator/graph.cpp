@@ -1,5 +1,4 @@
 #include "graph.h"
-#include "minHeap.h"
 
 Graph::Graph(const int& size) : nodes(size + 1) {
     this->size = size;
@@ -17,17 +16,27 @@ void Graph::setNodeCode(const int& n, const string& code)
     nodes[n].predecessor = {0, ""};
 }
 
-vector<pair<string, string> > Graph::getPath(const int& src, int dest)
+bool Graph::connected(const int &src, const int &dest)
 {
-    if (nodes[dest].predecessor.first == 0) return {};
-    vector<pair<string, string> > path;
-    do {
-        path.push_back({nodes[dest].code, nodes[dest].predecessor.second});
-        dest = nodes[dest].predecessor.first;
-    } while (dest != 0);
-    reverse(path.begin(), path.end());
-    return path;
+    for (auto e: nodes[src].adj)
+    {
+        if (e.dest == dest) return true;
+    }
+    return false;
+}
 
+void Graph::updateWalkingEdges(const int& src, const double &max_distance)
+{
+    list<Edge>::iterator it = nodes[src].adj.begin();
+    while (it != nodes[src].adj.end())
+    {
+        if (max_distance < it->dist && it->line == "_WALK")
+        {
+            it = nodes[src].adj.erase(it);
+        }
+        else
+            ++it;
+    }
 }
 
 vector<pair<string, string> > Graph::bfsPath(const int& src, const int& dest)
@@ -46,11 +55,11 @@ vector<pair<string, string> > Graph::bfsPath(const int& src, const int& dest)
         for (auto e : nodes[u].adj)
         {
             int w = e.dest;
-            if (!nodes[w].visited) {
+            if (!nodes[w].visited && e.line != "_WALK") {
                 q.push(w);
                 nodes[w].visited = true;
                 nodes[w].distance = nodes[u].distance + 1;
-                nodes[w].predecessor = {u, e.line};
+                nodes[w].predecessor = {u, chooseLine(u, w, e.line, nodes[u].predecessor.second)};
             }
         }
     }
@@ -70,13 +79,12 @@ vector<pair<string, string> > Graph::dijkstraPath(const int &src, const int &des
         int x = h.removeMin();
         nodes[x].visited = true;
         for (Edge e: nodes[x].adj){
-            if(!nodes[e.dest].visited && nodes[e.dest].distance > nodes[x].distance + e.dist){
+            if (!nodes[e.dest].visited && nodes[e.dest].distance > nodes[x].distance + e.dist) {
                 nodes[e.dest].distance = nodes[x].distance + e.dist;
-                nodes[e.dest].predecessor = {x, e.line};
-                if(!h.hasKey(e.dest)){
+                nodes[e.dest].predecessor = {x, chooseLine(x, e.dest, e.line, nodes[x].predecessor.second)};
+                if (!h.hasKey(e.dest)) {
                     h.insert(e.dest, nodes[e.dest].distance);
-                }
-                else{
+                } else {
                     h.decreaseKey(e.dest, nodes[e.dest].distance);
 
                 }
@@ -86,7 +94,7 @@ vector<pair<string, string> > Graph::dijkstraPath(const int &src, const int &des
     return getPath(src, dest);
 }
 
-vector<pair<string, string> > Graph::lowestLinesPath(const int &src, const int &dest) {
+vector<pair<string, string> > Graph::leastLinesPath(const int &src, const int &dest) {
     for (int i=1;i<=size;i++){
         nodes[i].distance = INT_MAX;
         nodes[i].visited = false;
@@ -104,7 +112,7 @@ vector<pair<string, string> > Graph::lowestLinesPath(const int &src, const int &
                 if(e.line!=nodes[x].predecessor.second){
                     nodes[e.dest].distance = nodes[x].distance + 1;
                 }
-                nodes[e.dest].predecessor = {x, e.line};
+                nodes[e.dest].predecessor = {x, chooseLine(x, e.dest, e.line, nodes[x].predecessor.second)};
                 if(!h.hasKey(e.dest)){
                     h.insert(e.dest, nodes[e.dest].distance);
                 }
@@ -117,3 +125,28 @@ vector<pair<string, string> > Graph::lowestLinesPath(const int &src, const int &
     }
     return getPath(src, dest);
 }
+
+string Graph::chooseLine(const int& src, const int& dest, const string& current, const string& prev) const
+{
+    for (auto e: nodes[src].adj)
+    {
+        if (e.dest == dest)
+        {
+            if (e.line == prev) return prev;
+        }
+    }
+    return current;
+}
+
+vector<pair<string, string> > Graph::getPath(const int& src, int dest)
+{
+    if (nodes[dest].predecessor.first == 0) return {};
+    vector<pair<string, string> > path;
+    do {
+        path.push_back({nodes[dest].code, nodes[dest].predecessor.second});
+        dest = nodes[dest].predecessor.first;
+    } while (dest != 0);
+    reverse(path.begin(), path.end());
+    return path;
+}
+
