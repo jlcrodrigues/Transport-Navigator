@@ -81,6 +81,11 @@ void PathState::displayPath(vector<pair<Stop, string> >& path) const
         }
     }
     printStop(path[path.size() - 1].first);
+
+    cout << endl << endl;
+
+    for (auto p: path) cout << p.first.getCode() << " "
+    << p.first.getName() << " " << p.second << endl;
 }
 
 void PathState::newPath(App *app)

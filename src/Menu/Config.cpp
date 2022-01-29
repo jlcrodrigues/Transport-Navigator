@@ -2,7 +2,7 @@
 
 Config::Config()
 {
-    this->maximum_walking_distance = 2;
+    this->maximum_walking_distance = 1;
 }
 
 double Config::getWalkingDistance() const {return maximum_walking_distance;}

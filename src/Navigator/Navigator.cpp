@@ -121,8 +121,7 @@ void Navigator::connectStops(const double& max_distance)
                 {
                     if (j != i && !network.connected(i->second, j->second))
                     {
-                        double distance = 0;
-                        network.addEdge(i->second, j->second, distance, "_WALK");
+                        network.addEdge(i->second, j->second, distance * 5, "_WALK");
                     }
                 }
             }
