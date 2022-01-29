@@ -9,7 +9,9 @@
 #include <iostream>
 #include <climits>
 #include <algorithm>
+
 #include "Stop.h"
+#include "minHeap.h"
 
 using namespace std;
 
@@ -59,12 +61,21 @@ public:
     vector<pair<string, string> > bfsPath(const int& src, const int& dest);
 
     /**
-     * Uses the algorithm of Dijkstra to fin the shortest path (less distance).
+     * Uses the algorithm of Dijkstra to find the shortest path (less distance).
+     * The algorithm of Dijkstra's time complexity is O(E log|V|).
      * @param src The starting node.
      * @param dest The destination node.
      * @return A vector of integers that represent a path from src to dest.
      */
     vector<pair<string, string> > dijkstraPath(const int& src, const int& dest);
+
+    /**
+     * Uses the algorithm of Dijkstra to fin the shortest path (less distance).
+     * @param src The starting node.
+     * @param dest The destination node.
+     * @return A vector of integers that represent a path from src to dest.
+     */
+    vector<pair<string, string> > leastLinesPath(const int& src, const int& dest);
 
 private:
    /**

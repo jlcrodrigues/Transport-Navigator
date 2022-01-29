@@ -53,6 +53,12 @@ private:
     */
    void fewestDistance(App* app);
 
+   /**
+    * Calculate and display the path with the lowest amount of lines used between stops.
+    * @param app Pointer to the main application.
+    */
+   void fewestLines(App* app);
+
    string src;
    string dest;
 };
