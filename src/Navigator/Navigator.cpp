@@ -20,7 +20,7 @@ void Navigator::loadStops(const string &file_path)
     map<string, int>::iterator it = stops_code.begin();
     for (; it != stops_code.end(); it++)
     {
-        network.setNodeCode(it->second, it->first);
+        network.setNodeCode(it->second, it->first, stops[it->first].getZone());
     }
 }
 
@@ -94,7 +94,7 @@ void Navigator::connectStops(const double& max_distance)
                 {
                     if (j != i && !network.connected(i->second, j->second))
                     {
-                        network.addEdge(i->second, j->second, distance * 5, "_WALK");
+                        network.addEdge(i->second, j->second, distance, "_WALK");
                     }
                 }
             }
@@ -142,6 +142,10 @@ vector<pair<Stop, string> > Navigator::getFewestDistance(const string &src, cons
 
 vector<pair<Stop, string> > Navigator::getFewestLines(const string &src, const string &dest){
     return readPath(network.leastLinesPath(stops_code[src], stops_code[dest]));
+}
+
+vector<pair<Stop, string> > Navigator::getFewestZones(const string &src, const string &dest){
+    return readPath(network.leastZonesPath(stops_code[src], stops_code[dest]));
 }
 
 unordered_map<string, string> Navigator::getLines() {

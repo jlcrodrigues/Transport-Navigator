@@ -30,11 +30,12 @@ public:
     void addEdge(const int& src, const int& dest, const double& dist, const string& line);
 
     /**
-     * Set a node's stop code.
+     * Set a node's stop code and his zone.
      * @param n An integer referring to a node.
      * @param code A stop's code.
+     * @param zone The zone where the stop belongs.
      */
-    void setNodeCode(const int& n, const string& code);
+    void setNodeCode(const int& n, const string& code, const string& zone);
 
     /**
      * Determine if a node connects to another node.
@@ -70,12 +71,20 @@ public:
     vector<pair<string, string> > dijkstraPath(const int& src, const int& dest);
 
     /**
-     * Uses the algorithm of Dijkstra to fin the shortest path (less distance).
+     * Uses the algorithm of Dijkstra to find the path that uses less lines.
      * @param src The starting node.
      * @param dest The destination node.
      * @return A vector of integers that represent a path from src to dest.
      */
     vector<pair<string, string> > leastLinesPath(const int& src, const int& dest);
+
+    /**
+     * Uses the algorithm of Dijkstra the path that crosses less zones.
+     * @param src The starting node.
+     * @param dest The destination node.
+     * @return A vector of integers that represent a path from src to dest.
+     */
+    vector<pair<string, string> > leastZonesPath(const int& src, const int& dest);
 
 private:
    /**
@@ -104,6 +113,7 @@ private:
 
    struct Node {
        string code;
+       string zone;
        list<Edge> adj;
        bool visited;
        double distance;
