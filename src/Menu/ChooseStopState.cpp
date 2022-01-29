@@ -36,7 +36,6 @@ void ChooseStopState::aux(App *app) {
     string option = readOptionString(app);
     for_each(option.begin(), option.end(), [](char & c){c = ::toupper(c);});
 
-
     if (!checkLine(app, option)) {
         while (true) {
             cout << "Invalid line. Please try again: \n";
@@ -86,12 +85,13 @@ void ChooseStopState::aux(App *app) {
 
 
 void ChooseStopState::displayLines(App *app) {
-    cout << "\nCode: " << "Name\n";
+    cout << "\nCode: " << "Name\n\n";
     for (auto l: app->getNavigator()->getLines())
     {
+        if (app->getConfig()->isDayTravel() == (l.first.back() == 'M')) continue;
         cout << l.first << ": " << l.second << "\n";
     }
-    cout << "Insert the code of the wanted line: ";
+    cout << "\nInsert the code of the wanted line:";
 
 }
 
@@ -153,6 +153,7 @@ void ChooseStopState::loadLinesStops(string path) {
 bool ChooseStopState::checkLine(App *app, string option) {
     for (auto line: app->getNavigator()->getLines()) {
         if (option == line.first) {
+            if (app->getConfig()->isDayTravel() == (line.first.back() == 'M')) continue;
             cout << "You chose line: " << line.second << "\n";
             return true;
         }

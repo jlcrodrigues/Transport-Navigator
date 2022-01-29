@@ -154,7 +154,7 @@ vector<pair<Stop, string> > Navigator::getFewestZones(const string &src, const s
     return readPath(network.leastZonesPath(stops_code[src], stops_code[dest]));
 }
 
-unordered_map<string, string> Navigator::getLines() {
+map<string, string> Navigator::getLines() {
     return lines;
 }
 

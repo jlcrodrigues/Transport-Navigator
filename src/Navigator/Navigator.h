@@ -108,7 +108,7 @@ public:
     * Getter for lines.
     * @return Map with all the lines.
     */
-    unordered_map<string, string> getLines();
+    map<string, string> getLines();
 
     /**
      * Getter for stops.
@@ -121,7 +121,7 @@ private:
    string capitalize(const string& sentence) const;
 
    unordered_map<string, Stop> stops; //stops by code
-   unordered_map<string, string> lines; //code, name
+   map<string, string> lines; //code, name
 
    map<string, int> stops_code;
    Graph network;
