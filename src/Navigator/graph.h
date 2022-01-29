@@ -50,14 +50,6 @@ public:
     void updateWalkingEdges(const int& src, const double& max_distance);
 
     /**
-     * Makes a path vector from each node's predecessor. Time complexity is O(n).
-     * @param src The starting node.
-     * @param dest The destination node.
-     * @return Returns a vector of pairs containing the stop code and the line used.
-     */
-    vector<pair<string, string> > getPath(const int& src, int dest);
-
-    /**
      * Uses breadth-first search to find the shortest path (less nodes).
      * The bfs' time complexity is O(V + E) and after that its O(n) to get the path.
      * @param src The starting node.
@@ -75,6 +67,24 @@ public:
     vector<pair<string, string> > dijkstraPath(const int& src, const int& dest);
 
 private:
+   /**
+    * Chooses which line to take between to stops in order to avoid unnecessary changes.
+    * @param src The starting node.
+    * @param dest The destination node.
+    * @param current The line being used.
+    * @param prev The last line used in the path.
+    * @return Returns the best line between current prev so it doesn't change unnecessarily.
+    */
+   string chooseLine(const int& src, const int& dest, const string& current, const string& prev) const;
+
+   /**
+    * Makes a path vector from each node's predecessor. Time complexity is O(n).
+    * @param src The starting node.
+    * @param dest The destination node.
+    * @return Returns a vector of pairs containing the stop code and the line used.
+    */
+   vector<pair<string, string> > getPath(const int& src, int dest);
+
    struct Edge {
        int dest;
        double dist;
