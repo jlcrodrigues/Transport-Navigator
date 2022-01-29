@@ -102,6 +102,11 @@ void Navigator::connectStops(const double& max_distance)
     }
 }
 
+void Navigator::setTime(const double &time)
+{
+    network.setTime(time);
+}
+
 vector<Stop> Navigator::getClosestStops(const Position& src, const int& number_of_stops)
 {
     map<double, Stop> distances;

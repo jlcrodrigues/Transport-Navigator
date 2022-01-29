@@ -34,6 +34,13 @@ void App::setDistance(const double &distance)
     navigator->connectStops(distance);
 }
 
+void App::setTime(const string& time_frame)
+{
+    if (time_frame == "night") config->setNightTime();
+    else config->setDayTime();
+    navigator->setTime(config->isDayTravel());
+}
+
 void App::setState(State* state)
 {
     this->state = state;

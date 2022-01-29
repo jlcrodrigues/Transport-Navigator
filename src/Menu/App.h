@@ -34,6 +34,12 @@ public:
    void setDistance(const double& distance);
 
    /**
+    * Change the time of the day.
+    * @param time_frame Either "night" or "day".
+    */
+   void setTime(const string& time_frame);
+
+   /**
     * Change the app's current state.
     * @param state Any state derived class.
     */
