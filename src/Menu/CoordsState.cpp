@@ -13,9 +13,11 @@ void CoordsState::step(App *app)
     pos = getPosition(app);
     src = chooseStop(app, pos);
 
-    cout << "\nChoose the destination point:\n";
-    pos = getPosition(app);
-    dest = chooseStop(app, pos);
+    do {
+        cout << "\nChoose the destination point:\n";
+        pos = getPosition(app);
+        dest = chooseStop(app, pos);
+    } while (dest == src);
 
     app->setState(new PathState(src, dest));
 }
