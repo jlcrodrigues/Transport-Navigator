@@ -29,9 +29,9 @@ public:
    double getLongitude() const;
 
    /**
-    * Get the distance between positions. It is calculated with the Haversine formula.
-    * @param pos Position object.
-    * @return Absolute value of the distance between positions (double).
+    * Subtraction operator. Uses the Haversine formula to calculate the distance between Positions.
+    * @param pos Position object to subtract.
+    * @return Returns a double with the absolute value of the distance between the 2 Positions.
     */
    double operator - (const Position& pos) const;
 
