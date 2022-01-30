@@ -60,16 +60,37 @@ private:
    void fewestDistance(App* app);
 
    /**
+    * Calculate total distance through a path.
+    * @param path A path vector with stops and lines.
+    * @return Total distance as a double.
+    */
+   double getDistance(vector<pair<Stop, string> > path);
+
+   /**
     * Calculate and display the path with the lowest amount of lines used between stops.
     * @param app Pointer to the main application.
     */
    void fewestLines(App* app);
 
    /**
+    * Calculate the number of different lines in a path.
+    * @param path A path vector with stops and lines.
+    * @return Returns the number of lines in the path as an integer.
+    */
+   int getLineCount(vector<pair<Stop, string> > path);
+
+   /**
     * Calculate and display the cheapest path between stops.
     * @param app Pointer to the main application.
     */
    void fewestZones(App* app);
+
+   /**
+    * Calculate the number of different zones in a path.
+    * @param path A path vector with stops and lines.
+    * @return Returns the number of zones in the path as an integer.
+    */
+   int getZoneCount(vector<pair<Stop, string> > path);
 
    string src;
    string dest;

@@ -93,7 +93,7 @@ void PathState::displayPath(vector<pair<Stop, string> >& path) const
     }
     printStop(path[path.size() - 1].first);
 
-    cout << endl << endl;
+    cout << endl;
 
     //for (auto p: path) cout << p.first.getCode() << " "
     //<< p.first.getName() << " " << p.second << endl;
@@ -129,23 +129,64 @@ void PathState::newPath(App *app)
 void PathState::fewestStops(App* app) {
     vector<pair<Stop, string> > path = app->getNavigator()->getFewestStops(src, dest);
     displayPath(path);
+    if (path.size() > 0)
+        cout << "The path with fewest stops goes trough a total of " << path.size() << " stops.\n\n";
     newPath(app);
 }
 
 void PathState::fewestDistance(App *app) {
     vector<pair<Stop, string> > path = app->getNavigator()->getFewestDistance(src, dest);
     displayPath(path);
+    if (path.size() > 0) {
+        cout << "Path calculated with a total distance of ";
+        cout << fixed << setprecision(3) << getDistance(path);
+        cout << " km.\n\n";
+    }
     newPath(app);
+}
+
+double PathState::getDistance(vector<pair<Stop, string>> path)
+{
+    double distance = 0;
+    for (int i = 0; i < path.size() - 1; i++)
+    {
+        distance += path[i].first.getPosition() - path[i + 1].first.getPosition();
+    }
+    return distance;
 }
 
 void PathState::fewestLines(App *app) {
     vector<pair<Stop, string> > path = app->getNavigator()->getFewestLines(src, dest);
     displayPath(path);
+    if (path.size() > 0)
+        cout << "Path found with a total of " << getLineCount(path) << " different lines taken.\n\n";
     newPath(app);
+}
+
+int PathState::getLineCount(vector<pair<Stop, string>> path)
+{
+    set<string> lines;
+    for (int i = 0; i < path.size(); i++)
+    {
+        lines.insert(path[i].second);
+    }
+    return lines.size();
 }
 
 void PathState::fewestZones(App *app) {
     vector<pair<Stop, string> > path = app->getNavigator()->getFewestZones(src, dest);
     displayPath(path);
+    if (path.size() > 0)
+        cout << "The cheapest path goes through a total of " << getZoneCount(path) << " different zones.\n\n";
     newPath(app);
+}
+
+int PathState::getZoneCount(vector<pair<Stop, string> > path)
+{
+    set<string> zones;
+    for (int i = 0; i < path.size(); i++)
+    {
+        zones.insert(path[i].first.getZone());
+    }
+    return zones.size();
 }
