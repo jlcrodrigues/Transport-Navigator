@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pathstate_0',['PathState',['../class_path_state.html#aa78cd5e1777868f3610effc7a515e19c',1,'PathState']]],
-  ['printinvalidoption_1',['printInvalidOption',['../class_state.html#a0e06f6567ec950c08d32bcc470ef0881',1,'State']]]
+  ['operator_2d_0',['operator-',['../class_position.html#a24093b794114f22e5e7860d5f250ebbe',1,'Position']]],
+  ['operator_3d_3d_1',['operator==',['../class_position.html#abbcd55e2e1c2f64c81c1514fb104ef51',1,'Position::operator==()'],['../class_stop.html#a8cf360d45b9d8ee4c23a84ae7ed638c5',1,'Stop::operator==()']]]
 ];

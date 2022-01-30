@@ -10,7 +10,7 @@ var annotated_dup =
     [ "MinHeap", "class_min_heap.html", null ],
     [ "Navigator", "class_navigator.html", "class_navigator" ],
     [ "PathState", "class_path_state.html", "class_path_state" ],
-    [ "Position", "class_position.html", null ],
+    [ "Position", "class_position.html", "class_position" ],
     [ "SettingsState", "class_settings_state.html", "class_settings_state" ],
     [ "State", "class_state.html", "class_state" ],
     [ "Stop", "class_stop.html", "class_stop" ]

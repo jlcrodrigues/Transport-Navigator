@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Transport Navigato: graph.h Source File</title>
+<title>Transport Navigator: src/Navigator/graph.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,7 +16,8 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Transport Navigato
+   <div id="projectname">Transport Navigator
    </div>
   </td>
  </tr>
@@ -106,69 +107,71 @@ $(document).ready(function(){initNavTree('graph_8h_source.html',''); initResizab
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="class_graph.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="class_graph.html">Graph</a> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>   <a class="code hl_class" href="class_graph.html">Graph</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_graph.html">Graph</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; size);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a910600991f1a824799fb4ddfdf65f1bf">addEdge</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; dist, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; line);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="class_graph.html#a90961be426ad80001cbc103b6385df31">   25</a></span>   <a class="code hl_function" href="class_graph.html#a90961be426ad80001cbc103b6385df31">Graph</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="class_graph.html#a90961be426ad80001cbc103b6385df31">Graph</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; size);</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#aa1e12b70d41032f78aeff6a5d11fbda8">setNodeCode</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; n, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; code, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; zone);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a910600991f1a824799fb4ddfdf65f1bf">addEdge</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; dist, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; line);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_graph.html#af70dadfe1201e18bd078260a2512a21d">connected</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#aa1e12b70d41032f78aeff6a5d11fbda8">setNodeCode</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; n, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; code, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; zone);</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a552d9b91234f5857842e722788affdda">updateWalkingEdges</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; max_distance);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    vector&lt;pair&lt;string, string&gt; &gt; <a class="code hl_function" href="class_graph.html#ad5b8b83a5d0c15665d7db1ad8b5b2382">bfsPath</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    vector&lt;pair&lt;string, string&gt; &gt; <a class="code hl_function" href="class_graph.html#ac04129ed0e5fda9c4ee404e0a6c010b3">dijkstraPath</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    vector&lt;pair&lt;string, string&gt; &gt; <a class="code hl_function" href="class_graph.html#aae718f18221e4fda712f891b8367acdf">leastLinesPath</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_graph.html#af70dadfe1201e18bd078260a2512a21d">connected</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a552d9b91234f5857842e722788affdda">updateWalkingEdges</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; max_distance);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    vector&lt;pair&lt;string, string&gt; &gt; <a class="code hl_function" href="class_graph.html#ad5b8b83a5d0c15665d7db1ad8b5b2382">bfsPath</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    vector&lt;pair&lt;string, string&gt; &gt; <a class="code hl_function" href="class_graph.html#ac04129ed0e5fda9c4ee404e0a6c010b3">dijkstraPath</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    vector&lt;pair&lt;string, string&gt; &gt; <a class="code hl_function" href="class_graph.html#afdfb7e29de122f7ca1a0bad4399aa66b">leastZonesPath</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    vector&lt;pair&lt;string, string&gt; &gt; <a class="code hl_function" href="class_graph.html#aae718f18221e4fda712f891b8367acdf">leastLinesPath</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#aa8a76e0c3b75c84262f7e607180e1159">setTime</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; time);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a20a9ab33a2fc553c19d78aae6a6b6658">setWalkingDistance</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; distance);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#ae2e100a6887eb827bca7880ab1bda346">setBlockedSet</a>(set&lt;string&gt;* lines, set&lt;string&gt;* stops);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>   <span class="keywordtype">string</span> chooseLine(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; current, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; prev) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>   vector&lt;pair&lt;string, string&gt; &gt; getPath(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keywordtype">int</span> dest);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    vector&lt;pair&lt;string, string&gt; &gt; <a class="code hl_function" href="class_graph.html#afdfb7e29de122f7ca1a0bad4399aa66b">leastZonesPath</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#aa8a76e0c3b75c84262f7e607180e1159">setTime</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span>&amp; time);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#a20a9ab33a2fc553c19d78aae6a6b6658">setWalkingDistance</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; distance);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_graph.html#ae2e100a6887eb827bca7880ab1bda346">setBlockedSet</a>(set&lt;string&gt;* lines, set&lt;string&gt;* stops);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>   <span class="keywordtype">string</span> chooseLine(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; dest, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; current, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; prev) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>   <span class="keywordtype">bool</span> validLine(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; code);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>   <span class="keywordtype">bool</span> validStop(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; code);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>   <span class="keyword">struct </span>Edge {</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>       <span class="keywordtype">int</span> dest;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>       <span class="keywordtype">double</span> dist;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>       <span class="keywordtype">string</span> line;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>   };</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>   <span class="keyword">struct </span>Node {</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>       <span class="keywordtype">string</span> code;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>       <span class="keywordtype">string</span> zone;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>       list&lt;Edge&gt; adj;</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>       <span class="keywordtype">bool</span> visited;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>       <span class="keywordtype">double</span> distance;</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>       <span class="keywordtype">double</span> distance_walked;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>       pair&lt;int, string&gt; predecessor; <span class="comment">//predecessor&#39;s int and code</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>   };</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>   vector&lt;Node&gt; nodes;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>   <span class="keywordtype">int</span> size;</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>   <span class="keywordtype">double</span> walking_distance;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>   <span class="keywordtype">bool</span> day_travel;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>   set&lt;string&gt;* blocked_lines;</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>   set&lt;string&gt;* blocked_stops;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>};</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>   vector&lt;pair&lt;string, string&gt; &gt; getPath(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; src, <span class="keywordtype">int</span> dest);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>   <span class="keywordtype">bool</span> validLine(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; code);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>   <span class="keywordtype">bool</span> validStop(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; code);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>   <span class="keyword">struct </span>Edge {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>       <span class="keywordtype">int</span> dest;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>       <span class="keywordtype">double</span> dist;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>       <span class="keywordtype">string</span> line;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>   };</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>   <span class="keyword">struct </span>Node {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>       <span class="keywordtype">string</span> code;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>       <span class="keywordtype">string</span> zone;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>       list&lt;Edge&gt; adj;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>       <span class="keywordtype">bool</span> visited;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>       <span class="keywordtype">double</span> distance;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>       <span class="keywordtype">double</span> distance_walked;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>       pair&lt;int, string&gt; predecessor; <span class="comment">//predecessor&#39;s int and code</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>   };</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>   vector&lt;Node&gt; nodes;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>   <span class="keywordtype">int</span> size;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>   <span class="keywordtype">double</span> walking_distance;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>   <span class="keywordtype">bool</span> day_travel;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>   set&lt;string&gt;* blocked_lines;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>   set&lt;string&gt;* blocked_stops;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>};</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> graph.h:19</div></div>
 <div class="ttc" id="aclass_graph_html_a20a9ab33a2fc553c19d78aae6a6b6658"><div class="ttname"><a href="class_graph.html#a20a9ab33a2fc553c19d78aae6a6b6658">Graph::setWalkingDistance</a></div><div class="ttdeci">void setWalkingDistance(const double &amp;distance)</div><div class="ttdef"><b>Definition:</b> graph.cpp:185</div></div>
 <div class="ttc" id="aclass_graph_html_a552d9b91234f5857842e722788affdda"><div class="ttname"><a href="class_graph.html#a552d9b91234f5857842e722788affdda">Graph::updateWalkingEdges</a></div><div class="ttdeci">void updateWalkingEdges(const int &amp;src, const double &amp;max_distance)</div><div class="ttdef"><b>Definition:</b> graph.cpp:29</div></div>
+<div class="ttc" id="aclass_graph_html_a90961be426ad80001cbc103b6385df31"><div class="ttname"><a href="class_graph.html#a90961be426ad80001cbc103b6385df31">Graph::Graph</a></div><div class="ttdeci">Graph()=default</div></div>
 <div class="ttc" id="aclass_graph_html_a910600991f1a824799fb4ddfdf65f1bf"><div class="ttname"><a href="class_graph.html#a910600991f1a824799fb4ddfdf65f1bf">Graph::addEdge</a></div><div class="ttdeci">void addEdge(const int &amp;src, const int &amp;dest, const double &amp;dist, const string &amp;line)</div><div class="ttdef"><b>Definition:</b> graph.cpp:7</div></div>
 <div class="ttc" id="aclass_graph_html_aa1e12b70d41032f78aeff6a5d11fbda8"><div class="ttname"><a href="class_graph.html#aa1e12b70d41032f78aeff6a5d11fbda8">Graph::setNodeCode</a></div><div class="ttdeci">void setNodeCode(const int &amp;n, const string &amp;code, const string &amp;zone)</div><div class="ttdef"><b>Definition:</b> graph.cpp:13</div></div>
 <div class="ttc" id="aclass_graph_html_aa8a76e0c3b75c84262f7e607180e1159"><div class="ttname"><a href="class_graph.html#aa8a76e0c3b75c84262f7e607180e1159">Graph::setTime</a></div><div class="ttdeci">void setTime(const bool &amp;time)</div><div class="ttdef"><b>Definition:</b> graph.cpp:183</div></div>

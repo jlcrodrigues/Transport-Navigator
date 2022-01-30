@@ -1,5 +1,7 @@
 var class_graph =
 [
+    [ "Graph", "class_graph.html#a90961be426ad80001cbc103b6385df31", null ],
+    [ "Graph", "class_graph.html#a6ad79835b207f6448ddb29a5cdbe65c3", null ],
     [ "addEdge", "class_graph.html#a910600991f1a824799fb4ddfdf65f1bf", null ],
     [ "bfsPath", "class_graph.html#ad5b8b83a5d0c15665d7db1ad8b5b2382", null ],
     [ "connected", "class_graph.html#af70dadfe1201e18bd078260a2512a21d", null ],

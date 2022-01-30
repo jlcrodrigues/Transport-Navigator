@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Transport Navigato: Stop.h Source File</title>
+<title>Transport Navigator: src/Navigator/Stop.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,7 +16,8 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Transport Navigato
+   <div id="projectname">Transport Navigator
    </div>
   </td>
  </tr>
@@ -105,24 +106,25 @@ $(document).ready(function(){initNavTree('_stop_8h_source.html',''); initResizab
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>   <span class="keywordtype">string</span> getZone() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>   <a class="code hl_class" href="class_position.html">Position</a> getPosition() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>   <span class="keywordtype">void</span> setName(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>   <span class="keywordtype">void</span> <a class="code hl_function" href="class_stop.html#a85b9f85303a168dd0e417e5aa313ebf4">loadFromCsv</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; row);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>   <span class="keywordtype">bool</span> <a class="code hl_function" href="class_stop.html#a8cf360d45b9d8ee4c23a84ae7ed638c5">operator == </a>(<span class="keyword">const</span> <a class="code hl_class" href="class_stop.html">Stop</a>&amp; stop);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>   <span class="keywordtype">string</span> code;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   <span class="keywordtype">string</span> name;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>   <span class="keywordtype">string</span> zone;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>   <a class="code hl_class" href="class_position.html">Position</a> position;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>   <span class="keywordtype">void</span> <a class="code hl_function" href="class_stop.html#ab6f8c04c15fec754716c71322eb5f2d8">setName</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; name);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>   <span class="keywordtype">void</span> <a class="code hl_function" href="class_stop.html#a85b9f85303a168dd0e417e5aa313ebf4">loadFromCsv</a>(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; row);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>   <span class="keywordtype">bool</span> <a class="code hl_function" href="class_stop.html#a8cf360d45b9d8ee4c23a84ae7ed638c5">operator == </a>(<span class="keyword">const</span> <a class="code hl_class" href="class_stop.html">Stop</a>&amp; stop);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>   <span class="keywordtype">string</span> code;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   <span class="keywordtype">string</span> name;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   <span class="keywordtype">string</span> zone;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>   <a class="code hl_class" href="class_position.html">Position</a> position;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>};</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_position_html"><div class="ttname"><a href="class_position.html">Position</a></div><div class="ttdef"><b>Definition:</b> Position.h:5</div></div>
 <div class="ttc" id="aclass_stop_html"><div class="ttname"><a href="class_stop.html">Stop</a></div><div class="ttdef"><b>Definition:</b> Stop.h:12</div></div>
 <div class="ttc" id="aclass_stop_html_a85b9f85303a168dd0e417e5aa313ebf4"><div class="ttname"><a href="class_stop.html#a85b9f85303a168dd0e417e5aa313ebf4">Stop::loadFromCsv</a></div><div class="ttdeci">void loadFromCsv(const string &amp;row)</div><div class="ttdef"><b>Definition:</b> Stop.cpp:13</div></div>
 <div class="ttc" id="aclass_stop_html_a8cf360d45b9d8ee4c23a84ae7ed638c5"><div class="ttname"><a href="class_stop.html#a8cf360d45b9d8ee4c23a84ae7ed638c5">Stop::operator==</a></div><div class="ttdeci">bool operator==(const Stop &amp;stop)</div><div class="ttdef"><b>Definition:</b> Stop.cpp:31</div></div>
+<div class="ttc" id="aclass_stop_html_ab6f8c04c15fec754716c71322eb5f2d8"><div class="ttname"><a href="class_stop.html#ab6f8c04c15fec754716c71322eb5f2d8">Stop::setName</a></div><div class="ttdeci">void setName(const string &amp;name)</div><div class="ttdef"><b>Definition:</b> Stop.cpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

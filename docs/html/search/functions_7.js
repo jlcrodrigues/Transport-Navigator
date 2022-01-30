@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3d_3d_0',['operator==',['../class_stop.html#a8cf360d45b9d8ee4c23a84ae7ed638c5',1,'Stop']]]
+  ['navigator_0',['Navigator',['../class_navigator.html#ae2fcca653537e48b3a6093e8e1242c9a',1,'Navigator']]]
 ];

@@ -1,5 +1,6 @@
 var class_app =
 [
+    [ "App", "class_app.html#acb8cbf3e285b91d0170ffe87df5989c5", null ],
     [ "getBlockedLines", "class_app.html#a8a17e93a65410b1779d9be507645be0f", null ],
     [ "getBlockedStops", "class_app.html#a2047d9f093403ed54d37c305b9c075c8", null ],
     [ "getConfig", "class_app.html#a1157de5eea74b5a35759e20068b864eb", null ],

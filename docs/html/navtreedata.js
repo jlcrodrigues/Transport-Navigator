@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Transport Navigato", "index.html", [
+  [ "Transport Navigator", "index.html", [
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],

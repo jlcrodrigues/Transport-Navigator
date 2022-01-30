@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Transport Navigato: Graph Class Reference</title>
+<title>Transport Navigator: Graph Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,7 +16,8 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Transport Navigato
+   <div id="projectname">Transport Navigator
    </div>
   </td>
  </tr>
@@ -92,8 +93,9 @@ $(document).ready(function(){initNavTree('class_graph.html',''); initResizable()
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6ad79835b207f6448ddb29a5cdbe65c3"><td class="memItemLeft" align="right" valign="top"><a id="a6ad79835b207f6448ddb29a5cdbe65c3" name="a6ad79835b207f6448ddb29a5cdbe65c3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Graph</b> (const int &amp;size)</td></tr>
+<tr class="memitem:a90961be426ad80001cbc103b6385df31"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a90961be426ad80001cbc103b6385df31">Graph</a> ()=default</td></tr>
+<tr class="separator:a90961be426ad80001cbc103b6385df31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ad79835b207f6448ddb29a5cdbe65c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a6ad79835b207f6448ddb29a5cdbe65c3">Graph</a> (const int &amp;size)</td></tr>
 <tr class="separator:a6ad79835b207f6448ddb29a5cdbe65c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a910600991f1a824799fb4ddfdf65f1bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#a910600991f1a824799fb4ddfdf65f1bf">addEdge</a> (const int &amp;src, const int &amp;dest, const double &amp;dist, const string &amp;line)</td></tr>
 <tr class="separator:a910600991f1a824799fb4ddfdf65f1bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,6 +120,57 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae2e100a6887eb827bca7880ab1bda346"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph.html#ae2e100a6887eb827bca7880ab1bda346">setBlockedSet</a> (set&lt; string &gt; *lines, set&lt; string &gt; *stops)</td></tr>
 <tr class="separator:ae2e100a6887eb827bca7880ab1bda346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a90961be426ad80001cbc103b6385df31" name="a90961be426ad80001cbc103b6385df31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90961be426ad80001cbc103b6385df31">&#9670;&nbsp;</a></span>Graph() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Graph::Graph </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >Default constructor for graph. </p>
+
+</div>
+</div>
+<a id="a6ad79835b207f6448ddb29a5cdbe65c3" name="a6ad79835b207f6448ddb29a5cdbe65c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ad79835b207f6448ddb29a5cdbe65c3">&#9670;&nbsp;</a></span>Graph() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Graph::Graph </td>
+          <td>(</td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Constructs a graph with specific size. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>The number of nodes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a910600991f1a824799fb4ddfdf65f1bf" name="a910600991f1a824799fb4ddfdf65f1bf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a910600991f1a824799fb4ddfdf65f1bf">&#9670;&nbsp;</a></span>addEdge()</h2>
@@ -508,8 +561,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="graph_8h_source.html">graph.h</a></li>
-<li>graph.cpp</li>
+<li>src/Navigator/<a class="el" href="graph_8h_source.html">graph.h</a></li>
+<li>src/Navigator/graph.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

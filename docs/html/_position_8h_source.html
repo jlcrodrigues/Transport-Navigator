@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Transport Navigato: Position.h Source File</title>
+<title>Transport Navigator: src/Navigator/Position.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,7 +16,8 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Transport Navigato
+   <div id="projectname">Transport Navigator
    </div>
   </td>
  </tr>
@@ -91,25 +92,30 @@ $(document).ready(function(){initNavTree('_position_8h_source.html',''); initRes
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="class_position.html">    4</a></span><span class="keyword">class </span><a class="code hl_class" href="class_position.html">Position</a></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>   <a class="code hl_class" href="class_position.html">Position</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>   <a class="code hl_class" href="class_position.html">Position</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; latitude, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; longitude);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>   <span class="keywordtype">double</span> getLatitude() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>   <span class="keywordtype">double</span> getLongitude() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>   <span class="keywordtype">double</span> operator - (<span class="keyword">const</span> <a class="code hl_class" href="class_position.html">Position</a>&amp; pos) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>   <span class="keywordtype">bool</span> operator == (<span class="keyword">const</span> <a class="code hl_class" href="class_position.html">Position</a>&amp; pos) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_position.html#ab16e66a71993dcdbbaced25a39542882">   10</a></span>   <a class="code hl_function" href="class_position.html#ab16e66a71993dcdbbaced25a39542882">Position</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>   <a class="code hl_function" href="class_position.html#ab16e66a71993dcdbbaced25a39542882">Position</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; latitude, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; longitude);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>   <span class="keywordtype">double</span> latitude;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>   <span class="keywordtype">double</span> longitude;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>   <span class="keywordtype">double</span> <a class="code hl_function" href="class_position.html#acc607b382cdf45a7307a60b67c3798c8">getLatitude</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>   <span class="keywordtype">double</span> <a class="code hl_function" href="class_position.html#a8faace008c35d977f4e7b9dd2b52e4ca">getLongitude</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   <span class="keywordtype">double</span> <a class="code hl_function" href="class_position.html#a24093b794114f22e5e7860d5f250ebbe">operator - </a>(<span class="keyword">const</span> <a class="code hl_class" href="class_position.html">Position</a>&amp; pos) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>   <span class="keywordtype">bool</span> <a class="code hl_function" href="class_position.html#abbcd55e2e1c2f64c81c1514fb104ef51">operator == </a>(<span class="keyword">const</span> <a class="code hl_class" href="class_position.html">Position</a>&amp; pos) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>   <span class="keywordtype">double</span> latitude;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>   <span class="keywordtype">double</span> longitude;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_position_html"><div class="ttname"><a href="class_position.html">Position</a></div><div class="ttdef"><b>Definition:</b> Position.h:5</div></div>
+<div class="ttc" id="aclass_position_html_a24093b794114f22e5e7860d5f250ebbe"><div class="ttname"><a href="class_position.html#a24093b794114f22e5e7860d5f250ebbe">Position::operator-</a></div><div class="ttdeci">double operator-(const Position &amp;pos) const</div><div class="ttdef"><b>Definition:</b> Position.cpp:13</div></div>
+<div class="ttc" id="aclass_position_html_a8faace008c35d977f4e7b9dd2b52e4ca"><div class="ttname"><a href="class_position.html#a8faace008c35d977f4e7b9dd2b52e4ca">Position::getLongitude</a></div><div class="ttdeci">double getLongitude() const</div><div class="ttdef"><b>Definition:</b> Position.cpp:11</div></div>
+<div class="ttc" id="aclass_position_html_ab16e66a71993dcdbbaced25a39542882"><div class="ttname"><a href="class_position.html#ab16e66a71993dcdbbaced25a39542882">Position::Position</a></div><div class="ttdeci">Position()=default</div></div>
+<div class="ttc" id="aclass_position_html_abbcd55e2e1c2f64c81c1514fb104ef51"><div class="ttname"><a href="class_position.html#abbcd55e2e1c2f64c81c1514fb104ef51">Position::operator==</a></div><div class="ttdeci">bool operator==(const Position &amp;pos) const</div><div class="ttdef"><b>Definition:</b> Position.cpp:27</div></div>
+<div class="ttc" id="aclass_position_html_acc607b382cdf45a7307a60b67c3798c8"><div class="ttname"><a href="class_position.html#acc607b382cdf45a7307a60b67c3798c8">Position::getLatitude</a></div><div class="ttdeci">double getLatitude() const</div><div class="ttdef"><b>Definition:</b> Position.cpp:9</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

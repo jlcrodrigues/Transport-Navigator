@@ -1,5 +1,6 @@
 var class_navigator =
 [
+    [ "Navigator", "class_navigator.html#ae2fcca653537e48b3a6093e8e1242c9a", null ],
     [ "connectStops", "class_navigator.html#a2abe8b8fd0bf267bed44d1de453833c7", null ],
     [ "getClosestStops", "class_navigator.html#a81f5431043e336ce9fdf361a3eef31cd", null ],
     [ "getFewestDistance", "class_navigator.html#a94a1a9ce0f68b3ad4da4564b3dfb1dd8", null ],

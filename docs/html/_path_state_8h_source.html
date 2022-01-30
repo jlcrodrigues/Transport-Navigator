@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Transport Navigato: PathState.h Source File</title>
+<title>Transport Navigator: src/Menu/PathState.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -16,7 +16,8 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css" />
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,7 +26,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Transport Navigato
+   <div id="projectname">Transport Navigator
    </div>
   </td>
  </tr>
@@ -105,26 +106,32 @@ $(document).ready(function(){initNavTree('_path_state_8h_source.html',''); initR
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>   <span class="keywordtype">void</span> printStop(<span class="keyword">const</span> <a class="code hl_class" href="class_stop.html">Stop</a>&amp; stop) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>   <span class="keywordtype">void</span> printLine(<span class="keyword">const</span> <a class="code hl_class" href="class_stop.html">Stop</a>&amp; src, <span class="keyword">const</span> <a class="code hl_class" href="class_stop.html">Stop</a>&amp; dest, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; line) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   <span class="keywordtype">void</span> displayPath(vector&lt;pair&lt;Stop, string&gt; &gt;&amp; path) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>   <span class="keywordtype">void</span> printLine(<span class="keyword">const</span> <a class="code hl_class" href="class_stop.html">Stop</a>&amp; src, <span class="keyword">const</span> <a class="code hl_class" href="class_stop.html">Stop</a>&amp; dest, <span class="keyword">const</span> <span class="keywordtype">string</span>&amp; line) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   <span class="keywordtype">void</span> newPath(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>   <span class="keywordtype">void</span> displayPath(vector&lt;pair&lt;Stop, string&gt; &gt;&amp; path) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>   <span class="keywordtype">void</span> fewestStops(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>   <span class="keywordtype">void</span> newPath(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>   <span class="keywordtype">void</span> fewestDistance(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>   <span class="keywordtype">void</span> fewestStops(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>   <span class="keywordtype">void</span> fewestLines(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>   <span class="keywordtype">void</span> fewestDistance(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>   <span class="keywordtype">void</span> fewestZones(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>   <span class="keywordtype">string</span> src;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>   <span class="keywordtype">string</span> dest;</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>   <span class="keywordtype">double</span> getDistance(vector&lt;pair&lt;Stop, string&gt; &gt; path);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>   <span class="keywordtype">void</span> fewestLines(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>   <span class="keywordtype">int</span> getLineCount(vector&lt;pair&lt;Stop, string&gt; &gt; path);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>   <span class="keywordtype">void</span> fewestZones(<a class="code hl_class" href="class_app.html">App</a>* app);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>   <span class="keywordtype">int</span> getZoneCount(vector&lt;pair&lt;Stop, string&gt; &gt; path);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>   <span class="keywordtype">string</span> src;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>   <span class="keywordtype">string</span> dest;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>};</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclass_app_html"><div class="ttname"><a href="class_app.html">App</a></div><div class="ttdef"><b>Definition:</b> App.h:13</div></div>
 <div class="ttc" id="aclass_path_state_html"><div class="ttname"><a href="class_path_state.html">PathState</a></div><div class="ttdef"><b>Definition:</b> PathState.h:12</div></div>
 <div class="ttc" id="aclass_path_state_html_a46e9a756eb1f71f79c1acc74bfaf0cda"><div class="ttname"><a href="class_path_state.html#a46e9a756eb1f71f79c1acc74bfaf0cda">PathState::step</a></div><div class="ttdeci">void step(App *app) override</div><div class="ttdef"><b>Definition:</b> PathState.cpp:21</div></div>
