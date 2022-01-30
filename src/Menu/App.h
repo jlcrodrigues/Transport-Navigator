@@ -12,6 +12,9 @@ class State;
 class App
 {
 public:
+   /**
+    * App's default constructor. Starts everything needed for the program.
+    */
    App();
 
    /**The application main loop.**/

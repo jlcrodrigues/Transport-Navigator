@@ -27,6 +27,12 @@ private:
     */
    void printStop(const Stop& stop) const;
 
+   /**
+    * Print a line correctly to the screen.
+    * @param src The starting stop.
+    * @param dest The destination stop.
+    * @param line The line being taken.
+    */
    void printLine(const Stop& src, const Stop& dest, const string& line) const;
 
    /**

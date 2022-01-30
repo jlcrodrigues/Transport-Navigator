@@ -19,7 +19,15 @@ using namespace std;
 class Graph {
 
 public:
+   /**
+    * Default constructor for graph.
+    */
    Graph() = default;
+
+   /**
+    * Constructs a graph with specific size.
+    * @param size The number of nodes.
+    */
     Graph(const int& size);
 
     /**

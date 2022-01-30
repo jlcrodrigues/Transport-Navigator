@@ -14,6 +14,9 @@
 
 class Navigator {
 public:
+   /**
+    * Navigator's default constructor.
+    */
    Navigator() = default;
 
    /**

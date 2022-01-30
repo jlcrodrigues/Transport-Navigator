@@ -76,14 +76,7 @@ void SettingsState::changeTime(App *app)
     cout << "Choose the time you want to travel: (night/day)\n";
     string option = "";
     while (option != "night" && option != "day") {
-        while (!(cin >> option)) {
-            if (cin.eof()) app->setState(nullptr);
-            else {
-                cin.clear();
-                cin.ignore(1000000, '\n');
-                printInvalidOption();
-            }
-        }
+        option = readOptionString(app);
         printInvalidOption();
     }
     app->setTime(option);

@@ -12,6 +12,10 @@ class App;
 
 class State {
 public:
+   /**
+    * State's main method. Calls display and step.
+    * @param app Pointer to the main application.
+    */
    void run(App* app);
 
 protected:

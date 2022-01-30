@@ -18,6 +18,10 @@ public:
    string getZone() const;
    Position getPosition() const;
 
+   /**
+    * Set the name of a stop.
+    * @param name New stop name.
+    */
    void setName(const string& name);
 
    /**
