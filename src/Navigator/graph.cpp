@@ -42,6 +42,7 @@ void Graph::updateWalkingEdges(const int& src, const double &max_distance)
 
 vector<pair<string, string> > Graph::bfsPath(const int& src, const int& dest)
 {
+    if (!validStop(nodes[src].code)) return {};
     for (int v=1; v <= size; v++) {
         nodes[v].visited = false;
         nodes[v].predecessor = {0, ""};
@@ -73,6 +74,7 @@ vector<pair<string, string> > Graph::bfsPath(const int& src, const int& dest)
 }
 
 vector<pair<string, string> > Graph::dijkstraPath(const int &src, const int &dest) {
+    if (!validStop(nodes[src].code)) return {};
     for (int i=1;i<=size;i++){
         nodes[i].distance = INT_MAX;
         nodes[i].visited = false;
@@ -104,6 +106,7 @@ vector<pair<string, string> > Graph::dijkstraPath(const int &src, const int &des
 }
 
 vector<pair<string, string> > Graph::leastLinesPath(const int &src, const int &dest) {
+    if (!validStop(nodes[src].code)) return {};
     for (int i=1;i<=size;i++){
         nodes[i].distance = INT_MAX;
         nodes[i].visited = false;
@@ -145,6 +148,7 @@ vector<pair<string, string> > Graph::leastLinesPath(const int &src, const int &d
 }
 
 vector<pair<string, string> > Graph::leastZonesPath(const int &src, const int &dest) {
+    if (!validStop(nodes[src].code)) return {};
     for (int i=1;i<=size;i++){
         nodes[i].distance = INT_MAX;
         nodes[i].visited = false;

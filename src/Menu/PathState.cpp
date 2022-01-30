@@ -168,9 +168,9 @@ int PathState::getLineCount(vector<pair<Stop, string>> path)
     set<string> lines;
     for (int i = 0; i < path.size(); i++)
     {
-        lines.insert(path[i].second);
+        if (path[i].second != "_WALK") lines.insert(path[i].second);
     }
-    return lines.size();
+    return lines.size() - 1;
 }
 
 void PathState::fewestZones(App *app) {
