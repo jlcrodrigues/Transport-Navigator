@@ -6,10 +6,39 @@ set(CMAKE_CXX_STANDARD 11)
 set(CREATE_EXE TRUE)
 
 set(SOURCE_FILES
+		src/Menu/App.h
+		src/Menu/ChooseStartState.h
+		src/Menu/ChooseStopState.h
+		src/Menu/Config.h
+		src/Menu/CoordsState.h
+		src/Menu/InitialState.h
+		src/Menu/PathState.h
+		src/Menu/SettingsState.h
+		src/Menu/State.h
+		src/Navigator/graph.h
+		src/Navigator/Navigator.h
+		src/Navigator/Position.h
+		src/Navigator/Stop.h
+		src/Navigator/minHeap.h
 
-		)
+		src/Menu/App.cpp
+		src/Menu/ChooseStartState.cpp
+		src/Menu/ChooseStopState.cpp
+		src/Menu/Config.cpp
+		src/Menu/CoordsState.cpp
+		src/Menu/InitialState.cpp
+		src/Menu/PathState.cpp
+		src/Menu/SettingsState.cpp
+		src/Menu/State.cpp
+		src/Navigator/graph.cpp
+		src/Navigator/Navigator.cpp
+		src/Navigator/Position.cpp
+		src/Navigator/Stop.cpp)
 
 set(TEST_FILES
+		tests/GraphTest.cpp
+		tests/PositionTest.cpp
+		tests/StopTest.cpp
 		)
 
 include_directories(src)
