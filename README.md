@@ -19,6 +19,10 @@ Using graphs and path finding algorithms (like *bfs* and *dijkstra*) we created 
 
 To learn more about the project check out the [presentation](navigator_presentation.pdf).
 
+### Program demo
+
+![Demo](docs/demo.gif)
+
 ## About the project
 ### **Made by:**
  - [André Barbosa](https://github.com/andrebarbosa02)
